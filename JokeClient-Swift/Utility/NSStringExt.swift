@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
    
-    func stringHeightWith(fontSize:Float,width:Float)->Float
+    func stringHeightWith(fontSize:Float,width:Float)->CGFloat
     {
         var font = UIFont.systemFontOfSize(fontSize)
         var size = CGSizeMake(width,CGFLOAT_MAX)
