@@ -7,9 +7,9 @@ JokeClient-Swift
 3.我的新浪微博http://weibo.com/yangreal
 
 
-https://github.com/YANGReal/JokeClient-Swift/blob/master/JokeClient-Swift/screenshoot/01.png
 
-![image](https://github.com/YANGReal/JokeClient-Swift/blob/master/JokeClient-Swift/screenshoot/01.png)
-![image](https://github.com/YANGReal/JokeClient-Swift/blob/master/JokeClient-Swift/screenshoot/02.png)
-![image](https://github.com/YANGReal/JokeClient-Swift/blob/master/JokeClient-Swift/screenshoot/03.png)
-![image](https://github.com/YANGReal/JokeClient-Swift/blob/master/JokeClient-Swift/screenshoot/04.png)
+
+![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/01.png)
+![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/02.png)
+![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/03.png)
+![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/04.png)
