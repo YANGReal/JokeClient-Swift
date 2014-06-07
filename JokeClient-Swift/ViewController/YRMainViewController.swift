@@ -102,9 +102,10 @@ class YRMainViewController: UITabBarController {
             }
         }
         
-        UIView.animateWithDuration( 0.3,{
+        UIView.animateWithDuration( 0.3,
+            {
            
-            self.slider!.frame = CGRectMake(Float(index-100)*80,0,80,49)
+            self.slider!.frame = CGRectMake(CGFloat(index-100)*80,0,80,49)
             
         })
         self.title = itemArray[index-100] as String

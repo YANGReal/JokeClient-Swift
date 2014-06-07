@@ -88,7 +88,9 @@ class YRCommnentsCell: UITableViewCell {
     {
         var content = data.stringAttributeForKey("content")
         var height = content.stringHeightWith(17,width:300)
-        return 53+height+24
+       
+        var h = 53.0 + height + 24.0
+        return h
     }
 
     
