@@ -131,9 +131,9 @@ class YRJokeCell: UITableViewCell {
         var imgSrc = data.stringAttributeForKey("image") as NSString
         if imgSrc.length == 0
         {
-            return 59+height+40
+            return 59.0 + height + 40.0
         }
-        return 59+height+5+112+40
+        return 59.0 + height + 5.0 + 112.0 + 40.0
     }
     
     func imageViewTapped(sender:UITapGestureRecognizer)
