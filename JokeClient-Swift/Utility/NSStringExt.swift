@@ -16,9 +16,6 @@ extension String {
     {
         var font = UIFont.systemFontOfSize(fontSize)
         var size = CGSizeMake(width,CGFLOAT_MAX)
-       // var attr = [font:NSFontAttributeName]
-      
-
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .ByWordWrapping;
         var  attributes = [NSFontAttributeName:font,
@@ -26,9 +23,7 @@ extension String {
         
         var text = self as NSString
         var rect = text.boundingRectWithSize(size, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
-      
         return rect.size.height
-        
     }
     
     func dateStringFromTimestamp(timeStamp:NSString)->String
