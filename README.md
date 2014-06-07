@@ -9,7 +9,7 @@ JokeClient-Swift
 
 
 
-![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/01.png)
-![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/02.png)
-![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/03.png)
-![image](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/04.png)
+![](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/01.png)
+![](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/02.png)
+![](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/03.png)
+![](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/04.png)
