@@ -6,7 +6,7 @@ JokeClient-Swift
 
 3.我的新浪微博http://weibo.com/yangreal
 
-
+4.修复在A7芯片设备上编译错误bug.
 
 
 ![](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/01.png)
