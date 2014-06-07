@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E53E908194352320021598F /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E906194352320021598F /* avatar.jpg */; };
+		6E53E909194352320021598F /* me.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E907194352320021598F /* me.jpeg */; };
+		6E53E911194352960021598F /* YRAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E90B194352960021598F /* YRAboutViewController.swift */; };
+		6E53E912194352960021598F /* YRAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E90C194352960021598F /* YRAboutViewController.xib */; };
+		6E53E913194352960021598F /* YRCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E90D194352960021598F /* YRCommentsViewController.swift */; };
+		6E53E914194352960021598F /* YRImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E90E194352960021598F /* YRImageViewController.swift */; };
+		6E53E915194352960021598F /* YRJokeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E90F194352960021598F /* YRJokeTableViewController.swift */; };
+		6E53E916194352960021598F /* YRMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E910194352960021598F /* YRMainViewController.swift */; };
+		6E53E91F194352DE0021598F /* YRCommnentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E918194352DE0021598F /* YRCommnentsCell.swift */; };
+		6E53E920194352DE0021598F /* YRCommnentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E919194352DE0021598F /* YRCommnentsCell.xib */; };
+		6E53E921194352DE0021598F /* YRImageZoomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E91A194352DE0021598F /* YRImageZoomingView.swift */; };
+		6E53E922194352DE0021598F /* YRJokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E91B194352DE0021598F /* YRJokeCell.swift */; };
+		6E53E923194352DE0021598F /* YRJokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E91C194352DE0021598F /* YRJokeCell.xib */; };
+		6E53E924194352DE0021598F /* YRRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E91D194352DE0021598F /* YRRefreshView.swift */; };
+		6E53E925194352DE0021598F /* YRRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E53E91E194352DE0021598F /* YRRefreshView.xib */; };
+		6E53E92D194353060021598F /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E927194353060021598F /* FileUtility.swift */; };
+		6E53E92E194353060021598F /* NSDictionaryExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E928194353060021598F /* NSDictionaryExt.swift */; };
+		6E53E92F194353060021598F /* NSStringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E929194353060021598F /* NSStringExt.swift */; };
+		6E53E930194353060021598F /* UIImageViewWebExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E92A194353060021598F /* UIImageViewWebExt.swift */; };
+		6E53E931194353060021598F /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E92B194353060021598F /* UIViewExt.swift */; };
+		6E53E932194353060021598F /* YRHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E92C194353060021598F /* YRHttpRequest.swift */; };
+		6ED8F37E194088F200644CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8F37D194088F200644CB6 /* AppDelegate.swift */; };
+		6ED8F380194088F200644CB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8F37F194088F200644CB6 /* Images.xcassets */; };
+		6ED8F38C194088F300644CB6 /* JokeClient_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8F38B194088F300644CB6 /* JokeClient_SwiftTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6ED8F386194088F300644CB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6ED8F370194088F200644CB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6ED8F377194088F200644CB6;
+			remoteInfo = "JokeClient-Swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6E53E906194352320021598F /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
+		6E53E907194352320021598F /* me.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpeg; sourceTree = "<group>"; };
+		6E53E90B194352960021598F /* YRAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRAboutViewController.swift; sourceTree = "<group>"; };
+		6E53E90C194352960021598F /* YRAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YRAboutViewController.xib; sourceTree = "<group>"; };
+		6E53E90D194352960021598F /* YRCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRCommentsViewController.swift; sourceTree = "<group>"; };
+		6E53E90E194352960021598F /* YRImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRImageViewController.swift; sourceTree = "<group>"; };
+		6E53E90F194352960021598F /* YRJokeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRJokeTableViewController.swift; sourceTree = "<group>"; };
+		6E53E910194352960021598F /* YRMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRMainViewController.swift; sourceTree = "<group>"; };
+		6E53E918194352DE0021598F /* YRCommnentsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRCommnentsCell.swift; sourceTree = "<group>"; };
+		6E53E919194352DE0021598F /* YRCommnentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YRCommnentsCell.xib; sourceTree = "<group>"; };
+		6E53E91A194352DE0021598F /* YRImageZoomingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRImageZoomingView.swift; sourceTree = "<group>"; };
+		6E53E91B194352DE0021598F /* YRJokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRJokeCell.swift; sourceTree = "<group>"; };
+		6E53E91C194352DE0021598F /* YRJokeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YRJokeCell.xib; sourceTree = "<group>"; };
+		6E53E91D194352DE0021598F /* YRRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRRefreshView.swift; sourceTree = "<group>"; };
+		6E53E91E194352DE0021598F /* YRRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YRRefreshView.xib; sourceTree = "<group>"; };
+		6E53E927194353060021598F /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
+		6E53E928194353060021598F /* NSDictionaryExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExt.swift; sourceTree = "<group>"; };
+		6E53E929194353060021598F /* NSStringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStringExt.swift; sourceTree = "<group>"; };
+		6E53E92A194353060021598F /* UIImageViewWebExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewWebExt.swift; sourceTree = "<group>"; };
+		6E53E92B194353060021598F /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		6E53E92C194353060021598F /* YRHttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRHttpRequest.swift; sourceTree = "<group>"; };
+		6ED8F378194088F200644CB6 /* JokeClient-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JokeClient-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ED8F37C194088F200644CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ED8F37D194088F200644CB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6ED8F37F194088F200644CB6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6ED8F385194088F300644CB6 /* JokeClient-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JokeClient-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ED8F38A194088F300644CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ED8F38B194088F300644CB6 /* JokeClient_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeClient_SwiftTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6ED8F375194088F200644CB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ED8F382194088F300644CB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E53E905194352320021598F /* image */ = {
+			isa = PBXGroup;
+			children = (
+				6E53E906194352320021598F /* avatar.jpg */,
+				6E53E907194352320021598F /* me.jpeg */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		6E53E90A194352960021598F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E53E90F194352960021598F /* YRJokeTableViewController.swift */,
+				6E53E90B194352960021598F /* YRAboutViewController.swift */,
+				6E53E90C194352960021598F /* YRAboutViewController.xib */,
+				6E53E90D194352960021598F /* YRCommentsViewController.swift */,
+				6E53E90E194352960021598F /* YRImageViewController.swift */,
+				6E53E910194352960021598F /* YRMainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6E53E917194352DE0021598F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E53E918194352DE0021598F /* YRCommnentsCell.swift */,
+				6E53E919194352DE0021598F /* YRCommnentsCell.xib */,
+				6E53E91A194352DE0021598F /* YRImageZoomingView.swift */,
+				6E53E91B194352DE0021598F /* YRJokeCell.swift */,
+				6E53E91C194352DE0021598F /* YRJokeCell.xib */,
+				6E53E91D194352DE0021598F /* YRRefreshView.swift */,
+				6E53E91E194352DE0021598F /* YRRefreshView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E53E926194353060021598F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6E53E927194353060021598F /* FileUtility.swift */,
+				6E53E928194353060021598F /* NSDictionaryExt.swift */,
+				6E53E929194353060021598F /* NSStringExt.swift */,
+				6E53E92A194353060021598F /* UIImageViewWebExt.swift */,
+				6E53E92B194353060021598F /* UIViewExt.swift */,
+				6E53E92C194353060021598F /* YRHttpRequest.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		6ED8F36F194088F200644CB6 = {
+			isa = PBXGroup;
+			children = (
+				6ED8F37A194088F200644CB6 /* JokeClient-Swift */,
+				6ED8F388194088F300644CB6 /* JokeClient-SwiftTests */,
+				6ED8F379194088F200644CB6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6ED8F379194088F200644CB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6ED8F378194088F200644CB6 /* JokeClient-Swift.app */,
+				6ED8F385194088F300644CB6 /* JokeClient-SwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6ED8F37A194088F200644CB6 /* JokeClient-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				6ED8F37D194088F200644CB6 /* AppDelegate.swift */,
+				6E53E917194352DE0021598F /* View */,
+				6E53E90A194352960021598F /* ViewController */,
+				6E53E926194353060021598F /* Utility */,
+				6E53E905194352320021598F /* image */,
+				6ED8F37F194088F200644CB6 /* Images.xcassets */,
+				6ED8F37B194088F200644CB6 /* Supporting Files */,
+			);
+			path = "JokeClient-Swift";
+			sourceTree = "<group>";
+		};
+		6ED8F37B194088F200644CB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6ED8F37C194088F200644CB6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6ED8F388194088F300644CB6 /* JokeClient-SwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				6ED8F38B194088F300644CB6 /* JokeClient_SwiftTests.swift */,
+				6ED8F389194088F300644CB6 /* Supporting Files */,
+			);
+			path = "JokeClient-SwiftTests";
+			sourceTree = "<group>";
+		};
+		6ED8F389194088F300644CB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6ED8F38A194088F300644CB6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6ED8F377194088F200644CB6 /* JokeClient-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6ED8F38F194088F300644CB6 /* Build configuration list for PBXNativeTarget "JokeClient-Swift" */;
+			buildPhases = (
+				6ED8F374194088F200644CB6 /* Sources */,
+				6ED8F375194088F200644CB6 /* Frameworks */,
+				6ED8F376194088F200644CB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JokeClient-Swift";
+			productName = "JokeClient-Swift";
+			productReference = 6ED8F378194088F200644CB6 /* JokeClient-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6ED8F384194088F300644CB6 /* JokeClient-SwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6ED8F392194088F300644CB6 /* Build configuration list for PBXNativeTarget "JokeClient-SwiftTests" */;
+			buildPhases = (
+				6ED8F381194088F300644CB6 /* Sources */,
+				6ED8F382194088F300644CB6 /* Frameworks */,
+				6ED8F383194088F300644CB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6ED8F387194088F300644CB6 /* PBXTargetDependency */,
+			);
+			name = "JokeClient-SwiftTests";
+			productName = "JokeClient-SwiftTests";
+			productReference = 6ED8F385194088F300644CB6 /* JokeClient-SwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6ED8F370194088F200644CB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = YANGReal;
+				TargetAttributes = {
+					6ED8F377194088F200644CB6 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					6ED8F384194088F300644CB6 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 6ED8F377194088F200644CB6;
+					};
+				};
+			};
+			buildConfigurationList = 6ED8F373194088F200644CB6 /* Build configuration list for PBXProject "JokeClient-Swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6ED8F36F194088F200644CB6;
+			productRefGroup = 6ED8F379194088F200644CB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6ED8F377194088F200644CB6 /* JokeClient-Swift */,
+				6ED8F384194088F300644CB6 /* JokeClient-SwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6ED8F376194088F200644CB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ED8F380194088F200644CB6 /* Images.xcassets in Resources */,
+				6E53E920194352DE0021598F /* YRCommnentsCell.xib in Resources */,
+				6E53E909194352320021598F /* me.jpeg in Resources */,
+				6E53E923194352DE0021598F /* YRJokeCell.xib in Resources */,
+				6E53E908194352320021598F /* avatar.jpg in Resources */,
+				6E53E912194352960021598F /* YRAboutViewController.xib in Resources */,
+				6E53E925194352DE0021598F /* YRRefreshView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ED8F383194088F300644CB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6ED8F374194088F200644CB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E53E924194352DE0021598F /* YRRefreshView.swift in Sources */,
+				6E53E921194352DE0021598F /* YRImageZoomingView.swift in Sources */,
+				6E53E932194353060021598F /* YRHttpRequest.swift in Sources */,
+				6E53E92D194353060021598F /* FileUtility.swift in Sources */,
+				6E53E91F194352DE0021598F /* YRCommnentsCell.swift in Sources */,
+				6E53E916194352960021598F /* YRMainViewController.swift in Sources */,
+				6E53E915194352960021598F /* YRJokeTableViewController.swift in Sources */,
+				6E53E914194352960021598F /* YRImageViewController.swift in Sources */,
+				6E53E911194352960021598F /* YRAboutViewController.swift in Sources */,
+				6E53E92E194353060021598F /* NSDictionaryExt.swift in Sources */,
+				6E53E930194353060021598F /* UIImageViewWebExt.swift in Sources */,
+				6E53E913194352960021598F /* YRCommentsViewController.swift in Sources */,
+				6ED8F37E194088F200644CB6 /* AppDelegate.swift in Sources */,
+				6E53E931194353060021598F /* UIViewExt.swift in Sources */,
+				6E53E922194352DE0021598F /* YRJokeCell.swift in Sources */,
+				6E53E92F194353060021598F /* NSStringExt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6ED8F381194088F300644CB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ED8F38C194088F300644CB6 /* JokeClient_SwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6ED8F387194088F300644CB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6ED8F377194088F200644CB6 /* JokeClient-Swift */;
+			targetProxy = 6ED8F386194088F300644CB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6ED8F38D194088F300644CB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6ED8F38E194088F300644CB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6ED8F390194088F300644CB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "JokeClient-Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6ED8F391194088F300644CB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "JokeClient-Swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6ED8F393194088F300644CB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JokeClient-Swift.app/JokeClient-Swift";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "JokeClient-SwiftTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		6ED8F394194088F300644CB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JokeClient-Swift.app/JokeClient-Swift";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "JokeClient-SwiftTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6ED8F373194088F200644CB6 /* Build configuration list for PBXProject "JokeClient-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ED8F38D194088F300644CB6 /* Debug */,
+				6ED8F38E194088F300644CB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6ED8F38F194088F300644CB6 /* Build configuration list for PBXNativeTarget "JokeClient-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ED8F390194088F300644CB6 /* Debug */,
+				6ED8F391194088F300644CB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6ED8F392194088F300644CB6 /* Build configuration list for PBXNativeTarget "JokeClient-SwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6ED8F393194088F300644CB6 /* Debug */,
+				6ED8F394194088F300644CB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6ED8F370194088F200644CB6 /* Project object */;
+}
