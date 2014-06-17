@@ -73,12 +73,13 @@ class YRJokeTableViewController: UIViewController,UITableViewDelegate,UITableVie
     {
         var url = urlString()
         self.refreshView!.startLoading()
-        YRHttpRequest.requestWithURL(url,completionHandler:{ data in
+        YRHttpRequest.AFRequestWithURL(url,completionHandler:{ data in
            
             if data as NSObject == NSNull()
             {
                UIView.showAlertView("提示",message:"加载失败")
-              return
+               self.refreshView!.stopLoading()
+               return
             }
             
             var arr = data["items"] as NSArray

@@ -46,6 +46,28 @@ class YRHttpRequest: NSObject {
         })
     }
     
+    class func AFRequestWithURL(urlString:String,completionHandler:(data:AnyObject)->Void) {
+        
+        let manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer = AFHTTPResponseSerializer()
+        manager.GET(urlString,
+            parameters: nil,
+            success: { (operation: AFHTTPRequestOperation!,
+                responseObject: AnyObject!) in
+                //println("JSON: " + responseObject.description!)
+                
+                let jsonData = NSJSONSerialization.JSONObjectWithData(responseObject as NSData, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                
+                completionHandler(data: jsonData)
+            },
+            failure: { (operation: AFHTTPRequestOperation!,
+                error: NSError!) in
+                //println("Error: " + error.localizedDescription)
+                
+                completionHandler(data:NSNull())
+            })
+    }
+
     
     
 }
