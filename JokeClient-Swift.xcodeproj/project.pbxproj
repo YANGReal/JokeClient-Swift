@@ -35,6 +35,7 @@
 		6ED8F37E194088F200644CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8F37D194088F200644CB6 /* AppDelegate.swift */; };
 		6ED8F380194088F200644CB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8F37F194088F200644CB6 /* Images.xcassets */; };
 		6ED8F38C194088F300644CB6 /* JokeClient_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8F38B194088F300644CB6 /* JokeClient_SwiftTests.swift */; };
+		9E111FE5BE7A48909D71DA75 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E67BBA7B744742B6ABA2C7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6845D44B19508D93006529DD /* JokeClient-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JokeClient-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		6E53E906194352320021598F /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
 		6E53E907194352320021598F /* me.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpeg; sourceTree = "<group>"; };
 		6E53E90B194352960021598F /* YRAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRAboutViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		6ED8F385194088F300644CB6 /* JokeClient-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JokeClient-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED8F38A194088F300644CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED8F38B194088F300644CB6 /* JokeClient_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeClient_SwiftTests.swift; sourceTree = "<group>"; };
+		899CC0694DFF4E988D257450 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		B7E67BBA7B744742B6ABA2C7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E111FE5BE7A48909D71DA75 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		609C21B9C32B488AA240E866 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7E67BBA7B744742B6ABA2C7 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6E53E905194352320021598F /* image */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +158,7 @@
 				6E53E92A194353060021598F /* UIImageViewWebExt.swift */,
 				6E53E92B194353060021598F /* UIViewExt.swift */,
 				6E53E92C194353060021598F /* YRHttpRequest.swift */,
+				6845D44B19508D93006529DD /* JokeClient-Swift-Bridging-Header.h */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -166,6 +180,8 @@
 				6ED8F37A194088F200644CB6 /* JokeClient-Swift */,
 				6ED8F388194088F300644CB6 /* JokeClient-SwiftTests */,
 				6ED8F379194088F200644CB6 /* Products */,
+				899CC0694DFF4E988D257450 /* Pods.xcconfig */,
+				609C21B9C32B488AA240E866 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,9 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ED8F38F194088F300644CB6 /* Build configuration list for PBXNativeTarget "JokeClient-Swift" */;
 			buildPhases = (
+				07841ABCBCD64CA886C33918 /* Check Pods Manifest.lock */,
 				6ED8F374194088F200644CB6 /* Sources */,
 				6ED8F375194088F200644CB6 /* Frameworks */,
 				6ED8F376194088F200644CB6 /* Resources */,
+				2033FB10AA2B4105BF8A5881 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,6 +337,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07841ABCBCD64CA886C33918 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2033FB10AA2B4105BF8A5881 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6ED8F374194088F200644CB6 /* Sources */ = {
@@ -442,23 +493,30 @@
 		};
 		6ED8F390194088F300644CB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 899CC0694DFF4E988D257450 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "JokeClient-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JokeClient-Swift/Utility/JokeClient-Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		6ED8F391194088F300644CB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 899CC0694DFF4E988D257450 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "JokeClient-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JokeClient-Swift/Utility/JokeClient-Swift-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -8,7 +8,7 @@ JokeClient-Swift
 
 4.我的新浪微博http://weibo.com/yangreal
 
-
+5.pod install, use JokeClient-Swift.xcworkspace
 
 
 ![](https://raw.githubusercontent.com/YANGReal/JokeClient-Swift/master/JokeClient-Swift/screenshoot/01.png)
