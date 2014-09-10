@@ -15,7 +15,7 @@ extension String {
 
     {
         var font = UIFont.systemFontOfSize(fontSize)
-        var size = CGSizeMake(width,CGFLOAT_MAX)
+        var size = CGSizeMake(width,CGFloat.max)
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .ByWordWrapping;
         var  attributes = [NSFontAttributeName:font,

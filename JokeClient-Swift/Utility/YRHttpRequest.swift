@@ -14,7 +14,7 @@ import Foundation
 
 class YRHttpRequest: NSObject {
 
-    init()
+    override init()
     {
         super.init();
     }
@@ -25,7 +25,7 @@ class YRHttpRequest: NSObject {
         var req = NSURLRequest(URL: URL)
         var queue = NSOperationQueue();
         NSURLConnection.sendAsynchronousRequest(req, queue: queue, completionHandler: { response, data, error in
-            if error
+            if (error != nil)
             {
                 dispatch_async(dispatch_get_main_queue(),
                 {

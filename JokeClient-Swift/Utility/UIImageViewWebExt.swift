@@ -21,14 +21,14 @@ extension UIImageView
       //  println(cachePath)
         if image as NSObject != NSNull()
         {
-            self.image = image as UIImage
+            self.image = image as? UIImage
         }
         else
         {
             var req = NSURLRequest(URL: url)
             var queue = NSOperationQueue();
             NSURLConnection.sendAsynchronousRequest(req, queue: queue, completionHandler: { response, data, error in
-                if error
+                if (error != nil)
                 {
                     dispatch_async(dispatch_get_main_queue(),
                         {
@@ -42,7 +42,7 @@ extension UIImageView
                         {
                             
                             var image = UIImage(data: data)
-                            if image == nil
+                            if (image == NSNull())
                             {
                                 self.image = placeHolder
                             }

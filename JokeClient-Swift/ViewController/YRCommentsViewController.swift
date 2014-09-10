@@ -20,10 +20,16 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
 
     
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
         self.title = "评论"
+    }
+    
+    
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -50,7 +56,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
         self.refreshView!.delegate = self
         
         self.tableView!.tableFooterView = self.refreshView
-        self.view.addSubview(self.tableView)
+        self.view.addSubview(self.tableView!)
     }
     
     func loadData()
@@ -83,26 +89,25 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return self.dataArray.count
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1;
     }
     
     
-    func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var cell = tableView?.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRCommnentsCell
-        var index = indexPath!.row
+        return self.dataArray.count;
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRCommnentsCell
+        var index = indexPath.row
         var data = self.dataArray[index] as NSDictionary
-        cell!.data = data
-        return cell
+        cell!.data  = data
+        return cell!
     }
     
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat

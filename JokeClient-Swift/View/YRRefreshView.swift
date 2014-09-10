@@ -30,13 +30,7 @@ class YRRefreshView: UIView {
     
     var delegate :YRRefreshViewDelegate!
     
-   /*
-    init(frame: CGRect) {
-        super.init(frame: frame)
-        // Initialization code
-    }
-    */
-    
+       
     
     override func awakeFromNib()
     {

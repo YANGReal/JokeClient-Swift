@@ -20,10 +20,14 @@ class YRMainViewController: UITabBarController {
     let itemArray = ["最新","热门","真相","关于"]
     
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
         self.title = "最新"
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad()
@@ -38,7 +42,7 @@ class YRMainViewController: UITabBarController {
     func setupViews()
     {
         self.automaticallyAdjustsScrollViewInsets = false
-        self.view!.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         self.tabBar.hidden = true
         var width = self.view.frame.size.width
         var height = self.view.frame.size.height
@@ -46,9 +50,9 @@ class YRMainViewController: UITabBarController {
         self.myTabbar!.backgroundColor = tabBarBGColor
         self.slider = UIView(frame:CGRectMake(0,0,80,49))
         self.slider!.backgroundColor = UIColor.whiteColor()//btnBGColor
-        self.myTabbar!.addSubview(self.slider)
+        self.myTabbar!.addSubview(self.slider!)
         
-        self.view.addSubview(self.myTabbar)
+        self.view.addSubview(self.myTabbar!)
         
         var count = self.itemArray.count
         

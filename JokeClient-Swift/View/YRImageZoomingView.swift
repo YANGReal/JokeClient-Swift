@@ -15,7 +15,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
     var imageURL:String!
     let placeHolder:UIImage = UIImage(named:"avatar.jpg")
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         // Initialization code
         self.delegate = self
@@ -23,7 +23,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         
         self.imageView = UIImageView(frame:self.bounds)
         self.imageView!.contentMode = .ScaleAspectFit
-        self.addSubview(self.imageView)
+        self.addSubview(self.imageView!)
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         self.backgroundColor = UIColor.clearColor()
@@ -34,6 +34,12 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         doubleTap.numberOfTapsRequired = 2;
         self.addGestureRecognizer(doubleTap);
         
+    }
+
+    
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func doubleTapped(sender:UITapGestureRecognizer)

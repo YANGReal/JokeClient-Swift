@@ -16,7 +16,9 @@ enum YRJokeTableViewControllerType : Int {
     
 }
 
-class YRJokeTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource ,YRRefreshViewDelegate{
+class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableViewDelegate,UITableViewDataSource
+
+{
     
     let identifier = "cell"
     var jokeType:YRJokeTableViewControllerType = .HotJoke
@@ -52,20 +54,18 @@ class YRJokeTableViewController: UIViewController,UITableViewDelegate,UITableVie
         var width = self.view.frame.size.width
         var height = self.view.frame.size.height
         self.tableView = UITableView(frame:CGRectMake(0,64,width,height-49-64))
-        self.tableView!.delegate = self;
-        self.tableView!.dataSource = self;
-        self.tableView!.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView?.delegate = self;
+        self.tableView?.dataSource = self;
+        self.tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
         var nib = UINib(nibName:"YRJokeCell", bundle: nil)
        
         self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
-       // self.tableView?.registerClass(YRJokeCell.self,
-        //forCellReuseIdentifier: identifier)
         var arr =  NSBundle.mainBundle().loadNibNamed("YRRefreshView" ,owner: self, options: nil) as Array
         self.refreshView = arr[0] as? YRRefreshView
         self.refreshView!.delegate = self
 
         self.tableView!.tableFooterView = self.refreshView
-        self.view.addSubview(self.tableView)
+        self.view.addSubview(self.tableView!)
     }
     
     
@@ -115,30 +115,34 @@ class YRJokeTableViewController: UIViewController,UITableViewDelegate,UITableVie
         // Dispose of any resources that can be recreated.
     }
 
-    // #pragma mark - Table view data source
-
     func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
-
-    func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return self.dataArray.count
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  self.dataArray.count;
     }
 
     
-    func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
-        
-        var cell = tableView?.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
-        var index = indexPath!.row
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
+        var index = indexPath.row
         var data = self.dataArray[index] as NSDictionary
         cell!.data = data
-        return cell
+        return cell!;
     }
     
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell {
+//
+//        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath!) as? YRJokeCell
+//        var index = indexPath!.row
+//        var data = self.dataArray[index] as NSDictionary
+//        cell!.data = data
+//        return cell!
+//    }
+
      func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
      {
         var index = indexPath!.row
@@ -151,12 +155,11 @@ class YRJokeTableViewController: UIViewController,UITableViewDelegate,UITableVie
         var data = self.dataArray[index] as NSDictionary
         var commentsVC = YRCommentsViewController(nibName :nil, bundle: nil)
         commentsVC.jokeId = data.stringAttributeForKey("id")
-        self.navigationController.pushViewController(commentsVC, animated: true)
+        self.navigationController!.pushViewController(commentsVC, animated: true)
     }
     
      func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
      {
-        //refreshView.startLoading()
         loadData()
      }
     
@@ -166,7 +169,7 @@ class YRJokeTableViewController: UIViewController,UITableViewDelegate,UITableVie
         var imageURL = noti.object as String
         var imgVC = YRImageViewController(nibName: nil, bundle: nil)
         imgVC.imageURL = imageURL
-        self.navigationController.pushViewController(imgVC, animated: true)
+        self.navigationController!.pushViewController(imgVC, animated: true)
         
        
     }
