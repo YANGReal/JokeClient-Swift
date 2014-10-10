@@ -6,7 +6,9 @@ JokeClient-Swift
 
 3.本项目仅供学习交流使用,不能用作任何形式的商业用途!内容接口来源于网络上公开的API,如侵犯到相关机构的权益,本人不承担任何后果
 
-4.我的新浪微博http://weibo.com/yangreal
+4.修复一些编译错误
+
+5.我的新浪微博http://weibo.com/yangreal
 
 
 
