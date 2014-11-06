@@ -29,7 +29,7 @@ class FileUtility: NSObject {
        var exist = NSFileManager.defaultManager().fileExistsAtPath(path)
         if exist
         {
-          return  UIImage(contentsOfFile: path)
+          return  UIImage(contentsOfFile: path)!
         }
         
         return NSNull()

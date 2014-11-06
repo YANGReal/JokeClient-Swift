@@ -21,8 +21,11 @@ class YRHttpRequest: NSObject {
     
     class func requestWithURL(urlString:String,completionHandler:(data:AnyObject)->Void)
     {
-        var URL = NSURL.URLWithString(urlString)
-        var req = NSURLRequest(URL: URL)
+        
+        
+        var URL = NSURL(string: urlString);
+      
+        var req = NSURLRequest(URL: URL!)
         var queue = NSOperationQueue();
         NSURLConnection.sendAsynchronousRequest(req, queue: queue, completionHandler: { response, data, error in
             if (error != nil)

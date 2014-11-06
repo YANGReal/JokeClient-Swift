@@ -13,7 +13,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
     
     var imageView:UIImageView?
     var imageURL:String!
-    let placeHolder:UIImage = UIImage(named:"avatar.jpg")
+    let placeHolder:UIImage = UIImage(named:"avatar.jpg")!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

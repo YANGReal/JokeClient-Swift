@@ -13,8 +13,8 @@ class YRAboutViewController: UIViewController {
     @IBAction func followMe()
     {
         var urlString = "http://weibo.com/yangreal"
-        var url =  NSURL.URLWithString(urlString)
-        UIApplication.sharedApplication().openURL(url)
+        var url =  NSURL(string: urlString)
+        UIApplication.sharedApplication().openURL(url!)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
