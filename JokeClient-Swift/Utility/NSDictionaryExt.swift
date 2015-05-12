@@ -13,17 +13,26 @@ extension NSDictionary {
     
     func stringAttributeForKey(key:String)->String
     {
-        var obj : AnyObject! = self[key]
-        if obj as NSObject == NSNull()
+        //println(self[key])
+        
+        var obj:AnyObject?  = self[key]
+        //if obj as! NSObject == NSNull()
+        if let aa = obj as? NSObject
         {
+            //return ""
+        } else {
             return ""
         }
-        if obj.isKindOfClass(NSNumber)
+        if obj!.isKindOfClass(NSNumber)
         {
-            var num = obj as NSNumber
+            var num = obj as! NSNumber
             return num.stringValue
         }
-       return obj as String
+        if let bb = obj as? String
+        {
+            return obj as! String
+        }
+        return ""
     }
     
 }

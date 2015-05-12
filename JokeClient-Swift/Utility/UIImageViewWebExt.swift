@@ -16,10 +16,10 @@ extension UIImageView
     
         var url = NSURL(string: urlString)
         var cacheFilename = url!.lastPathComponent
-        var cachePath = FileUtility.cachePath(cacheFilename)
+        var cachePath = FileUtility.cachePath(cacheFilename!)
         var image : AnyObject = FileUtility.imageDataFromPath(cachePath)
       //  println(cachePath)
-        if image as NSObject != NSNull()
+        if image as! NSObject != NSNull()
         {
             self.image = image as? UIImage
         }
@@ -42,14 +42,19 @@ extension UIImageView
                         {
                             
                             var image = UIImage(data: data)
-                            if (image == NSNull())
+                            if (image == nil)
                             {
+                                println("img is nil,path=\(cachePath)")
                                 self.image = placeHolder
                             }
                             else
                             {
                                 self.image = image
-                                FileUtility.imageCacheToPath(cachePath,image:data)
+                                var bIsSuccess = FileUtility.imageCacheToPath(cachePath,image:data)
+                                if !bIsSuccess
+                                {
+                                    println("*******cache fail,path=\(cachePath)")
+                                }
                             }
                         })
                 }

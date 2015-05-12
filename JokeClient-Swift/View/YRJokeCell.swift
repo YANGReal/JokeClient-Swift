@@ -48,19 +48,23 @@ class YRJokeCell: UITableViewCell {
     override func layoutSubviews()
     {
         super.layoutSubviews()
-       // var uid = self.data["id"] as String
-        var user : AnyObject!  = self.data["user"]
+        // var uid = self.data["id"] as String
         
-        if user as NSObject != NSNull()
+        
+        var user:AnyObject?  = self.data["user"]
+        
+        //if user as! NSObject != NSNull()
+        if let userDictOp:NSDictionary = user as? NSDictionary
         {
-            var userDict = user as NSDictionary
-            self.nickLabel!.text = userDict["login"] as NSString
+            //var userDict = user as! NSDictionary
+            var userDict = userDictOp
+            self.nickLabel!.text = userDict["login"] as! String?
             
             var icon : AnyObject! = userDict["icon"] //as NSString
-            if icon as NSObject != NSNull()
+            if icon as! NSObject != NSNull()
             {
-                var userIcon = icon as String
-                var userId =  userDict["id"] as NSString
+                var userIcon = icon as! String
+                var userId =  userDict["id"] as! NSString
                 var prefixUserId = userId.substringToIndex(3)
                 var userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
                 self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
@@ -101,7 +105,7 @@ class YRJokeCell: UITableViewCell {
         }
         
         var votes :AnyObject!  = self.data["votes"]
-        if votes as NSObject == NSNull()
+        if votes as! NSObject == NSNull()
         {
             self.likeLabel!.text = "顶(0)"
             self.dislikeLabel!.text = "踩(0)"
@@ -109,7 +113,7 @@ class YRJokeCell: UITableViewCell {
         }
         else
         {
-            var votesDict = votes as NSDictionary
+            var votesDict = votes as! NSDictionary
             var like  = votesDict.stringAttributeForKey("up") as String
             var disLike  = votesDict.stringAttributeForKey("down") as String
             self.likeLabel!.text = "顶(\(like))"

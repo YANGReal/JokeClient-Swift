@@ -57,9 +57,9 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
     }
     
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView!)->UIView
+    func viewForZoomingInScrollView(scrollView: UIScrollView)->UIView?
     {
-        return self.imageView!
+        return self.imageView
     }
     
     override func layoutSubviews()

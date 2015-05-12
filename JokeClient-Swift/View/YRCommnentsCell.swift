@@ -40,16 +40,16 @@ class YRCommnentsCell: UITableViewCell {
         // var uid = self.data["id"] as String
         var user : AnyObject!  = self.data["user"]
         
-        if user as NSObject != NSNull()
+        if user as! NSObject != NSNull()
         {
-            var userDict = user as NSDictionary
-            self.nickLabel!.text = userDict["login"] as NSString
+            var userDict = user as! NSDictionary
+            self.nickLabel!.text = userDict["login"] as! NSString as String
             
             var icon : AnyObject! = userDict["icon"]
-            if icon as NSObject != NSNull()
+            if icon as! NSObject != NSNull()
             {
-                var userIcon = icon as String
-                var userId =  userDict["id"] as NSString
+                var userIcon = icon as! String
+                var userId =  userDict["id"] as! NSString
                 var prefixUserId = userId.substringToIndex(3)
                 var userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
                 self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))

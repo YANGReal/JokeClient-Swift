@@ -38,7 +38,7 @@ class YRHttpRequest: NSObject {
             }
             else
             {
-                let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
 
                 dispatch_async(dispatch_get_main_queue(),
                 {

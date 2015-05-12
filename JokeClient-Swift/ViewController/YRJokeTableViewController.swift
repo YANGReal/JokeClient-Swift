@@ -75,13 +75,13 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         self.refreshView!.startLoading()
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
            
-            if data as NSObject == NSNull()
+            if data as! NSObject == NSNull()
             {
                UIView.showAlertView("提示",message:"加载失败")
               return
             }
             
-            var arr = data["items"] as NSArray
+            var arr = data["items"] as! NSArray
             
             for data : AnyObject  in arr
             {
@@ -115,7 +115,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         // Dispose of any resources that can be recreated.
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
@@ -129,7 +129,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
         var index = indexPath.row
-        var data = self.dataArray[index] as NSDictionary
+        var data = self.dataArray[index] as! NSDictionary
         cell!.data = data
         return cell!;
     }
@@ -143,16 +143,16 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
 //        return cell!
 //    }
 
-     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
+     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
      {
-        var index = indexPath!.row
-        var data = self.dataArray[index] as NSDictionary
+        var index = indexPath.row
+        var data = self.dataArray[index] as! NSDictionary
         return  YRJokeCell.cellHeightByData(data)
     }
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var index = indexPath!.row
-        var data = self.dataArray[index] as NSDictionary
+        var index = indexPath.row
+        var data = self.dataArray[index] as! NSDictionary
         var commentsVC = YRCommentsViewController(nibName :nil, bundle: nil)
         commentsVC.jokeId = data.stringAttributeForKey("id")
         self.navigationController!.pushViewController(commentsVC, animated: true)
@@ -166,7 +166,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     func imageViewTapped(noti:NSNotification)
     {
         
-        var imageURL = noti.object as String
+        var imageURL = noti.object as! String
         var imgVC = YRImageViewController(nibName: nil, bundle: nil)
         imgVC.imageURL = imageURL
         self.navigationController!.pushViewController(imgVC, animated: true)

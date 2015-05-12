@@ -59,7 +59,7 @@ class YRMainViewController: UITabBarController {
          for var index = 0; index < count; index++
         {
             var btnWidth = (CGFloat)(index*80)
-            var button  = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+            var button  = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
             button.frame = CGRectMake(btnWidth, 0,80,49)
             button.tag = index+100
             var title = self.itemArray[index]
@@ -95,7 +95,7 @@ class YRMainViewController: UITabBarController {
         
         for var i = 0;i<4;i++
         {
-            var button = self.view.viewWithTag(i+100) as UIButton
+            var button = self.view.viewWithTag(i+100) as! UIButton
             if button.tag == index
             {
                 button.selected = true
@@ -107,7 +107,7 @@ class YRMainViewController: UITabBarController {
         }
         
         UIView.animateWithDuration( 0.3,
-            {
+            animations:{
            
             self.slider!.frame = CGRectMake(CGFloat(index-100)*80,0,80,49)
             
