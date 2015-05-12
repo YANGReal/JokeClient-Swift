@@ -65,8 +65,9 @@ class YRJokeCell: UITableViewCell {
             {
                 var userIcon = icon as! String
                 var userId =  userDict["id"] as! NSString
-                var prefixUserId = userId.substringToIndex(3)
-                var userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
+                var prefixUserId = userId.substringToIndex(userId.length - 4)
+                
+                var userImageURL = "http://pic.qiushibaike.com/system/avtnew/\(prefixUserId)/\(userId)/medium/\(userIcon)"
                 self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
             }
             else
@@ -95,11 +96,11 @@ class YRJokeCell: UITableViewCell {
         else
         {
             var imageId = self.data.stringAttributeForKey("id") as NSString
-            var prefiximageId = imageId.substringToIndex(4)
-            var imagURL = "http://pic.moumentei.com/system/pictures/\(prefiximageId)/\(imageId)/small/\(imgSrc)"
+            var prefiximageId = imageId.substringToIndex(imageId.length - 4)
+            var imagURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/small/\(imgSrc)"
             self.pictureView!.hidden = false
             self.pictureView!.setImage(imagURL,placeHolder: UIImage(named: "avatar.jpg"))
-            self.largeImageURL = "http://pic.moumentei.com/system/pictures/\(prefiximageId)/\(imageId)/medium/\(imgSrc)"
+            self.largeImageURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/medium/\(imgSrc)"
             self.pictureView!.setY(self.contentLabel!.bottom()+5)
             self.bottomView!.setY(self.pictureView!.bottom())
         }

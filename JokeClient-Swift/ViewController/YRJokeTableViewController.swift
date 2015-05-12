@@ -82,7 +82,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
             }
             
             var arr = data["items"] as! NSArray
-            
+            //println(data)
             for data : AnyObject  in arr
             {
                self.dataArray.addObject(data)
