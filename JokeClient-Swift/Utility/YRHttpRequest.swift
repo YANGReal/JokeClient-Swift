@@ -23,10 +23,10 @@ class YRHttpRequest: NSObject {
     {
         
         
-        var URL = NSURL(string: urlString);
+        let URL = NSURL(string: urlString);
       
-        var req = NSURLRequest(URL: URL!)
-        var queue = NSOperationQueue();
+        let req = NSURLRequest(URL: URL!)
+        let queue = NSOperationQueue();
         NSURLConnection.sendAsynchronousRequest(req, queue: queue, completionHandler: { response, data, error in
             if (error != nil)
             {

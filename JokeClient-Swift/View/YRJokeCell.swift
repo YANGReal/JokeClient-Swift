@@ -50,7 +50,10 @@ class YRJokeCell: UITableViewCell {
         super.layoutSubviews()
         // var uid = self.data["id"] as String
         
-                
+        guard ((self.data) != nil) else{
+            return;
+        }
+        
         let user:AnyObject?  = self.data["user"]
         
         //if user as! NSObject != NSNull()
@@ -64,11 +67,14 @@ class YRJokeCell: UITableViewCell {
             if icon as! NSObject != NSNull()
             {
                 let userIcon = icon as! String
-                let userId =  userDict["id"] as! NSString
-                let prefixUserId = userId.substringToIndex(userId.length - 4)
+                if let idNumber = userDict["id"] as? NSNumber {
+                    let userId = idNumber.stringValue as NSString
+                    let prefixUserId = userId.substringToIndex(userId.length - 4)
+                    
+                    let userImageURL = "http://pic.qiushibaike.com/system/avtnew/\(prefixUserId)/\(userId)/medium/\(userIcon)"
+                    self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
+                }
                 
-                let userImageURL = "http://pic.qiushibaike.com/system/avtnew/\(prefixUserId)/\(userId)/medium/\(userIcon)"
-                self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
             }
             else
             {
