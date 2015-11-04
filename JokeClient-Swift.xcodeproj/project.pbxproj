@@ -262,12 +262,14 @@
 		6ED8F370194088F200644CB6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = YANGReal;
 				TargetAttributes = {
 					6ED8F377194088F200644CB6 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 4TH838523D;
+						DevelopmentTeam = SRN4J2C3KZ;
 					};
 					6ED8F384194088F300644CB6 = {
 						CreatedOnToolsVersion = 6.0;
@@ -451,6 +453,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joke.feeco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -466,6 +469,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joke.feeco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

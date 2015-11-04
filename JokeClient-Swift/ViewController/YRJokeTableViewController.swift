@@ -20,7 +20,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
 
 {
     
-    let identifier = "cell"
+    let identifier = "YRJokeCellIdentifier"
     var jokeType:YRJokeTableViewControllerType = .HotJoke
     var tableView:UITableView?
     var dataArray = NSMutableArray()
@@ -51,13 +51,13 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     
     func setupViews()
     {
-        var width = self.view.frame.size.width
-        var height = self.view.frame.size.height
+        let width = self.view.frame.size.width
+        let height = self.view.frame.size.height
         self.tableView = UITableView(frame:CGRectMake(0,64,width,height-49-64))
         self.tableView?.delegate = self;
         self.tableView?.dataSource = self;
         self.tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
-        var nib = UINib(nibName:"YRJokeCell", bundle: nil)
+        let nib = UINib(nibName:"YRJokeCell", bundle: nil)
        
         self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
         var arr =  NSBundle.mainBundle().loadNibNamed("YRRefreshView" ,owner: self, options: nil) as Array
@@ -71,7 +71,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     
     func loadData()
     {
-        var url = urlString()
+        let url = urlString()
         self.refreshView!.startLoading()
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
            
@@ -81,7 +81,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
               return
             }
             
-            var arr = data["items"] as! NSArray
+            let arr = data["items"] as! NSArray
             //println(data)
             for data : AnyObject  in arr
             {
@@ -127,9 +127,9 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
-        var index = indexPath.row
-        var data = self.dataArray[index] as! NSDictionary
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
+        let index = indexPath.row
+        let data = self.dataArray[index] as! NSDictionary
         cell!.data = data
         return cell!;
     }
@@ -145,15 +145,15 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
 
      func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
      {
-        var index = indexPath.row
-        var data = self.dataArray[index] as! NSDictionary
+        let index = indexPath.row
+        let data = self.dataArray[index] as! NSDictionary
         return  YRJokeCell.cellHeightByData(data)
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var index = indexPath.row
-        var data = self.dataArray[index] as! NSDictionary
-        var commentsVC = YRCommentsViewController(nibName :nil, bundle: nil)
+        let index = indexPath.row
+        let data = self.dataArray[index] as! NSDictionary
+        let commentsVC = YRCommentsViewController(nibName :nil, bundle: nil)
         commentsVC.jokeId = data.stringAttributeForKey("id")
         self.navigationController!.pushViewController(commentsVC, animated: true)
     }
@@ -166,8 +166,8 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     func imageViewTapped(noti:NSNotification)
     {
         
-        var imageURL = noti.object as! String
-        var imgVC = YRImageViewController(nibName: nil, bundle: nil)
+        let imageURL = noti.object as! String
+        let imgVC = YRImageViewController(nibName: nil, bundle: nil)
         imgVC.imageURL = imageURL
         self.navigationController!.pushViewController(imgVC, animated: true)
         

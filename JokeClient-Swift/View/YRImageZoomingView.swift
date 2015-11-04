@@ -30,7 +30,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         self.minimumZoomScale = 1;
         self.maximumZoomScale = 3;
      
-        var doubleTap = UITapGestureRecognizer(target: self, action: "doubleTapped:")
+        let doubleTap = UITapGestureRecognizer(target: self, action: "doubleTapped:")
         doubleTap.numberOfTapsRequired = 2;
         self.addGestureRecognizer(doubleTap);
         
@@ -38,7 +38,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
 
     
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -50,7 +50,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         }
         else
         {
-            var point = sender.locationInView(self);
+            let point = sender.locationInView(self);
             self.zoomToRect(CGRectMake(point.x-50, point.y-50, 100, 100), animated:true)
         }
 
