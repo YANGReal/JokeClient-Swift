@@ -46,7 +46,7 @@ extension UIImageView
                             {
                                 let jsonData = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
                                 
-                                if let err:String? = jsonData["error"] as? String {
+                                if let _:String? = jsonData["error"] as? String {
                                     //println("\(err)")
                                     print("url fail=\(urlString)");
                                 }
@@ -56,7 +56,7 @@ extension UIImageView
                             else
                             {
                                 self.image = image
-                                var bIsSuccess = FileUtility.imageCacheToPath(cachePath,image:data!)
+                                let bIsSuccess = FileUtility.imageCacheToPath(cachePath,image:data!)
                                 if !bIsSuccess
                                 {
                                     print("*******cache fail,path=\(cachePath)")

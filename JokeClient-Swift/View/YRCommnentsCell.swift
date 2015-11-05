@@ -49,7 +49,7 @@ class YRCommnentsCell: UITableViewCell {
             if icon as! NSObject != NSNull()
             {
                 let userIcon = icon as! String
-                let userId =  userDict["id"] as! NSString
+                let userId =  userDict.stringAttributeForKey("id") as NSString;
                 let prefixUserId = userId.substringToIndex(3)
                 let userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
                 self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
