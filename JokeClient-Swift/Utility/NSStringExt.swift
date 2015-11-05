@@ -14,24 +14,24 @@ extension String {
     func stringHeightWith(fontSize:CGFloat,width:CGFloat)->CGFloat
 
     {
-        var font = UIFont.systemFontOfSize(fontSize)
-        var size = CGSizeMake(width,CGFloat.max)
-        var paragraphStyle = NSMutableParagraphStyle()
+        let font = UIFont.systemFontOfSize(fontSize)
+        let size = CGSizeMake(width,CGFloat.max)
+        let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .ByWordWrapping;
-        var  attributes = [NSFontAttributeName:font,
+        let  attributes = [NSFontAttributeName:font,
             NSParagraphStyleAttributeName:paragraphStyle.copy()]
         
-        var text = self as NSString
-        var rect = text.boundingRectWithSize(size, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
+        let text = self as NSString
+        let rect = text.boundingRectWithSize(size, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
         return rect.size.height
     }
     
     func dateStringFromTimestamp(timeStamp:NSString)->String
     {
-        var ts = timeStamp.doubleValue
-        var  formatter = NSDateFormatter ()
+        let ts = timeStamp.doubleValue
+        let  formatter = NSDateFormatter ()
         formatter.dateFormat = "yyyy年MM月dd日 HH:MM:ss"
-        var date = NSDate(timeIntervalSince1970 : ts)
+        let date = NSDate(timeIntervalSince1970 : ts)
          return  formatter.stringFromDate(date)
         
     }

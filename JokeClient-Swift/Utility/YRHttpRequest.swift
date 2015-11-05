@@ -23,22 +23,22 @@ class YRHttpRequest: NSObject {
     {
         
         
-        var URL = NSURL(string: urlString);
+        let URL = NSURL(string: urlString);
       
-        var req = NSURLRequest(URL: URL!)
-        var queue = NSOperationQueue();
+        let req = NSURLRequest(URL: URL!)
+        let queue = NSOperationQueue();
         NSURLConnection.sendAsynchronousRequest(req, queue: queue, completionHandler: { response, data, error in
             if (error != nil)
             {
                 dispatch_async(dispatch_get_main_queue(),
                 {
-                    println(error)
+                    print(error)
                     completionHandler(data:NSNull())
                 })
             }
             else
             {
-                let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                let jsonData = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
 
                 dispatch_async(dispatch_get_main_queue(),
                 {

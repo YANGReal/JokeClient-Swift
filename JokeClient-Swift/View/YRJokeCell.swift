@@ -35,7 +35,7 @@ class YRJokeCell: UITableViewCell {
          self.selectionStyle = .None
         
         
-        var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
+        let tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
         self.pictureView!.addGestureRecognizer(tap)
     }
 
@@ -50,25 +50,31 @@ class YRJokeCell: UITableViewCell {
         super.layoutSubviews()
         // var uid = self.data["id"] as String
         
+        guard ((self.data) != nil) else{
+            return;
+        }
         
-        var user:AnyObject?  = self.data["user"]
+        let user:AnyObject?  = self.data["user"]
         
         //if user as! NSObject != NSNull()
         if let userDictOp:NSDictionary = user as? NSDictionary
         {
             //var userDict = user as! NSDictionary
-            var userDict = userDictOp
+            let userDict = userDictOp
             self.nickLabel!.text = userDict["login"] as! String?
             
-            var icon : AnyObject! = userDict["icon"] //as NSString
+            let icon : AnyObject! = userDict["icon"] //as NSString
             if icon as! NSObject != NSNull()
             {
-                var userIcon = icon as! String
-                var userId =  userDict["id"] as! NSString
-                var prefixUserId = userId.substringToIndex(userId.length - 4)
+                let userIcon = icon as! String
+                if let idNumber = userDict["id"] as? NSNumber {
+                    let userId = idNumber.stringValue as NSString
+                    let prefixUserId = userId.substringToIndex(userId.length - 4)
+                    
+                    let userImageURL = "http://pic.qiushibaike.com/system/avtnew/\(prefixUserId)/\(userId)/medium/\(userIcon)"
+                    self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
+                }
                 
-                var userImageURL = "http://pic.qiushibaike.com/system/avtnew/\(prefixUserId)/\(userId)/medium/\(userIcon)"
-                self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
             }
             else
             {
@@ -81,13 +87,13 @@ class YRJokeCell: UITableViewCell {
             self.avatarView!.image =  UIImage(named: "avatar.jpg")
           
         }
-        var content = self.data.stringAttributeForKey("content")
-        var height = content.stringHeightWith(17,width:300)
+        let content = self.data.stringAttributeForKey("content")
+        let height = content.stringHeightWith(17,width:300)
        
         self.contentLabel!.setHeight(height)
         self.contentLabel!.text = content
         
-        var imgSrc = self.data.stringAttributeForKey("image") as NSString
+        let imgSrc = self.data.stringAttributeForKey("image") as NSString
         if imgSrc.length == 0
         {
             self.pictureView!.hidden = true
@@ -95,9 +101,9 @@ class YRJokeCell: UITableViewCell {
         }
         else
         {
-            var imageId = self.data.stringAttributeForKey("id") as NSString
-            var prefiximageId = imageId.substringToIndex(imageId.length - 4)
-            var imagURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/small/\(imgSrc)"
+            let imageId = self.data.stringAttributeForKey("id") as NSString
+            let prefiximageId = imageId.substringToIndex(imageId.length - 4)
+            let imagURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/small/\(imgSrc)"
             self.pictureView!.hidden = false
             self.pictureView!.setImage(imagURL,placeHolder: UIImage(named: "avatar.jpg"))
             self.largeImageURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/medium/\(imgSrc)"
@@ -105,7 +111,7 @@ class YRJokeCell: UITableViewCell {
             self.bottomView!.setY(self.pictureView!.bottom())
         }
         
-        var votes :AnyObject!  = self.data["votes"]
+        let votes :AnyObject!  = self.data["votes"]
         if votes as! NSObject == NSNull()
         {
             self.likeLabel!.text = "顶(0)"
@@ -114,13 +120,13 @@ class YRJokeCell: UITableViewCell {
         }
         else
         {
-            var votesDict = votes as! NSDictionary
-            var like  = votesDict.stringAttributeForKey("up") as String
-            var disLike  = votesDict.stringAttributeForKey("down") as String
+            let votesDict = votes as! NSDictionary
+            let like  = votesDict.stringAttributeForKey("up") as String
+            let disLike  = votesDict.stringAttributeForKey("down") as String
             self.likeLabel!.text = "顶(\(like))"
             self.dislikeLabel!.text = "踩(\(disLike))"
         }//comments_count
-        var commentCount = self.data.stringAttributeForKey("comments_count") as String
+        let commentCount = self.data.stringAttributeForKey("comments_count") as String
         self.commentLabel!.text = "评论(\(commentCount))"
         
         
@@ -131,9 +137,9 @@ class YRJokeCell: UITableViewCell {
     
     class func cellHeightByData(data:NSDictionary)->CGFloat
     {
-        var content = data.stringAttributeForKey("content")
-        var height = content.stringHeightWith(17,width:300)
-        var imgSrc = data.stringAttributeForKey("image") as NSString
+        let content = data.stringAttributeForKey("content")
+        let height = content.stringHeightWith(17,width:300)
+        let imgSrc = data.stringAttributeForKey("image") as NSString
         if imgSrc.length == 0
         {
             return 59.0 + height + 40.0

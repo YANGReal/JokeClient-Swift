@@ -14,7 +14,7 @@ class FileUtility: NSObject {
     class func cachePath(fileName:String)->String
     {
         var arr =  NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
-        var path = arr[0] as! String
+        let path = arr[0] 
         return "\(path)/\(fileName)"
     }
     
@@ -26,17 +26,17 @@ class FileUtility: NSObject {
     
     class func imageDataFromPath(path:String)->AnyObject
     {
-        var exist = NSFileManager.defaultManager().fileExistsAtPath(path)
+        let exist = NSFileManager.defaultManager().fileExistsAtPath(path)
         if exist
         {
             //var urlStr = NSURL.fileURLWithPath(path)
             var data = NSData(contentsOfFile: path);
             //var img:UIImage? = UIImage(data:data!)
             //return img ?? NSNull()
-            var img = UIImage(contentsOfFile: path)
+            let img = UIImage(contentsOfFile: path)
             
-            var url:NSURL? = NSURL.fileURLWithPath(path)
-            var dd = NSFileManager.defaultManager().contentsAtPath(url!.path!)
+            let url:NSURL? = NSURL.fileURLWithPath(path)
+            let dd = NSFileManager.defaultManager().contentsAtPath(url!.path!)
             var jpg = UIImage(data:dd!)
             
             if img != nil {

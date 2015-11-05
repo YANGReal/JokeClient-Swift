@@ -12,8 +12,8 @@ class YRAboutViewController: UIViewController {
 
     @IBAction func followMe()
     {
-        var urlString = "http://weibo.com/yangreal"
-        var url =  NSURL(string: urlString)
+        let urlString = "http://weibo.com/yangreal"
+        let url =  NSURL(string: urlString)
         UIApplication.sharedApplication().openURL(url!)
     }
     
@@ -23,7 +23,7 @@ class YRAboutViewController: UIViewController {
     }
 
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

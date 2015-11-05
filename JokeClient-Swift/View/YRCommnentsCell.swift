@@ -38,20 +38,20 @@ class YRCommnentsCell: UITableViewCell {
     {
         super.layoutSubviews()
         // var uid = self.data["id"] as String
-        var user : AnyObject!  = self.data["user"]
+        let user : AnyObject!  = self.data["user"]
         
         if user as! NSObject != NSNull()
         {
-            var userDict = user as! NSDictionary
+            let userDict = user as! NSDictionary
             self.nickLabel!.text = userDict["login"] as! NSString as String
             
-            var icon : AnyObject! = userDict["icon"]
+            let icon : AnyObject! = userDict["icon"]
             if icon as! NSObject != NSNull()
             {
-                var userIcon = icon as! String
-                var userId =  userDict["id"] as! NSString
-                var prefixUserId = userId.substringToIndex(3)
-                var userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
+                let userIcon = icon as! String
+                let userId =  userDict["id"] as! NSString
+                let prefixUserId = userId.substringToIndex(3)
+                let userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
                 self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
             }
             else
@@ -59,8 +59,8 @@ class YRCommnentsCell: UITableViewCell {
                 self.avatarView!.image =  UIImage(named: "avatar.jpg")
             }
             
-            var timeStamp = userDict.stringAttributeForKey("created_at")
-            var date = timeStamp.dateStringFromTimestamp(timeStamp)
+            let timeStamp = userDict.stringAttributeForKey("created_at")
+            let date = timeStamp.dateStringFromTimestamp(timeStamp)
             self.dateLabel!.text = date
             
         }
@@ -71,12 +71,12 @@ class YRCommnentsCell: UITableViewCell {
             self.dateLabel!.text = ""
             
         }
-        var content = self.data.stringAttributeForKey("content")
-        var height = content.stringHeightWith(17,width:300)
+        let content = self.data.stringAttributeForKey("content")
+        let height = content.stringHeightWith(17,width:300)
         self.contentLabel!.setHeight(height)
         self.contentLabel!.text = content
         self.dateLabel!.setY(self.contentLabel!.bottom())
-        var floor = self.data.stringAttributeForKey("floor")
+        let floor = self.data.stringAttributeForKey("floor")
         self.floorLabel!.text = "\(floor)楼"
     }
 
@@ -86,8 +86,8 @@ class YRCommnentsCell: UITableViewCell {
     
     class func cellHeightByData(data:NSDictionary)->CGFloat
     {
-        var content = data.stringAttributeForKey("content")
-        var height = content.stringHeightWith(17,width:300)
+        let content = data.stringAttributeForKey("content")
+        let height = content.stringHeightWith(17,width:300)
         return 53.0 + height + 24.0
     }
 
