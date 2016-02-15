@@ -116,23 +116,13 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
         let data = self.dataArray[index] as! NSDictionary
         return  YRCommnentsCell.cellHeightByData(data)
     }
-//    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
-//    {
-//        var index = indexPath!.row
-//        var data = self.dataArray[index] as NSDictionary
-//        println(data)
-//    }
+
     
     func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
     {
         //refreshView.startLoading()
         loadData()
     }    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // #pragma mark - Navigation
