@@ -44,13 +44,8 @@ extension UIImageView
                             let image = UIImage(data: data!)
                             if (image == nil)
                             {
-                                let jsonData = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
-                                
-                                if let _:String? = jsonData["error"] as? String {
-                                    //println("\(err)")
-                                    print("url fail=\(urlString)");
-                                }
-                                //println("img is nil,path=\(cachePath)")
+
+                                print("image is nil and url fail=\(urlString)")
                                 self.image = placeHolder
                             }
                             else

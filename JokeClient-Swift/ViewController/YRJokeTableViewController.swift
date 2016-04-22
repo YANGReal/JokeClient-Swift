@@ -44,14 +44,14 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
      override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: "imageViewTapped:", name: "imageViewTapped", object: nil)
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YRJokeTableViewController.imageViewTapped(_:)), name: "imageViewTapped", object: nil)
     }
     
     
     
     func setupViews()
     {
-        let width = self.view.frame.size.width
+        let width = UIScreen.mainScreen().bounds.size.width
         let height = self.view.frame.size.height
         self.tableView = UITableView(frame:CGRectMake(0,64,width,height-49-64))
         self.tableView?.delegate = self;
@@ -89,7 +89,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
             }
             self.tableView!.reloadData()
             self.refreshView!.stopLoading()
-            self.page++
+            self.page += 1;
             })
     }
     
@@ -121,12 +121,14 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return  self.dataArray.count;
     }
 
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
@@ -134,17 +136,8 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         return cell!;
     }
     
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell {
-//
-//        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath!) as? YRJokeCell
-//        var index = indexPath!.row
-//        var data = self.dataArray[index] as NSDictionary
-//        cell!.data = data
-//        return cell!
-//    }
-
-     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-     {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
         return  YRJokeCell.cellHeightByData(data)

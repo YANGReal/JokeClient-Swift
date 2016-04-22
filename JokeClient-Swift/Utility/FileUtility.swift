@@ -29,7 +29,7 @@ class FileUtility: NSObject {
         let exist = NSFileManager.defaultManager().fileExistsAtPath(path)
         if exist
         {
-            //var urlStr = NSURL.fileURLWithPath(path)
+
             _ = NSData(contentsOfFile: path);
             //var img:UIImage? = UIImage(data:data!)
             //return img ?? NSNull()
@@ -39,13 +39,15 @@ class FileUtility: NSObject {
             let dd = NSFileManager.defaultManager().contentsAtPath(url!.path!)
             _ = UIImage(data:dd!)
             
-            if img != nil {
+            if img != nil
+            {
                 return img!
-            } else {
+            }
+            else
+            {
                 return NSNull()
             }
         }
-        
         return NSNull()
     }
     

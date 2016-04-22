@@ -35,8 +35,6 @@ class YRMainViewController: UITabBarController {
         super.viewDidLoad()
         setupViews()
         initViewControllers()
-     //   loadData()
-        // Do any additional setup after loading the view.
     }
     
     func setupViews()
@@ -44,7 +42,7 @@ class YRMainViewController: UITabBarController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = UIColor.whiteColor()
         self.tabBar.hidden = true
-        let width = self.view.frame.size.width
+        let width = UIScreen.mainScreen().bounds.size.width;
         let height = self.view.frame.size.height
         self.myTabbar = UIView(frame: CGRectMake(0,height-49,width,49))
         self.myTabbar!.backgroundColor = tabBarBGColor
@@ -56,18 +54,20 @@ class YRMainViewController: UITabBarController {
         
         let count = self.itemArray.count
         
-         for var index = 0; index < count; index++
+         for index in 0 ..< count
         {
-            let btnWidth = (CGFloat)(index*80)
+            
+            let btnWidth = (CGFloat)(width/4)
             let button  = UIButton(type: UIButtonType.Custom)
-            button.frame = CGRectMake(btnWidth, 0,80,49)
+            let x = (btnWidth*(CGFloat)(index));
+            button.frame = CGRectMake(x, 0,btnWidth,49)
             button.tag = index+100
             let title = self.itemArray[index]
             button.setTitle(title, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
             button.setTitleColor(tabBarBGColor, forState: UIControlState.Selected)
             
-            button.addTarget(self, action: "tabBarButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(YRMainViewController.tabBarButtonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             self.myTabbar?.addSubview(button)
             if index == 0
             {
@@ -93,7 +93,7 @@ class YRMainViewController: UITabBarController {
     {
         let index = sender.tag
         
-        for var i = 0;i<4;i++
+        for i in 0 ..< 4
         {
             let button = self.view.viewWithTag(i+100) as! UIButton
             if button.tag == index
@@ -105,11 +105,12 @@ class YRMainViewController: UITabBarController {
                 button.selected = false
             }
         }
-        
+        let width = UIScreen.mainScreen().bounds.size.width;
+        let btnWidth = (CGFloat)(width/4)
         UIView.animateWithDuration( 0.3,
             animations:{
            
-            self.slider!.frame = CGRectMake(CGFloat(index-100)*80,0,80,49)
+            self.slider!.frame = CGRectMake(CGFloat(index-100)*btnWidth,0,btnWidth,49)
             
         })
         self.title = itemArray[index-100] as String

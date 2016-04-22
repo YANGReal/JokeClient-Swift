@@ -30,7 +30,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         self.minimumZoomScale = 1;
         self.maximumZoomScale = 3;
      
-        let doubleTap = UITapGestureRecognizer(target: self, action: "doubleTapped:")
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(YRImageZoomingView.doubleTapped(_:)))
         doubleTap.numberOfTapsRequired = 2;
         self.addGestureRecognizer(doubleTap);
         

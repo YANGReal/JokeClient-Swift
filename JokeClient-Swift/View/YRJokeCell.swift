@@ -35,7 +35,7 @@ class YRJokeCell: UITableViewCell {
          self.selectionStyle = .None
         
         
-        let tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(YRJokeCell.imageViewTapped(_:)))
         self.pictureView!.addGestureRecognizer(tap)
     }
 
@@ -88,7 +88,8 @@ class YRJokeCell: UITableViewCell {
           
         }
         let content = self.data.stringAttributeForKey("content")
-        let height = content.stringHeightWith(17,width:300)
+         let width = UIScreen.mainScreen().bounds.size.width;
+        let height = content.stringHeightWith(17,width:width-10*2)
        
         self.contentLabel!.setHeight(height)
         self.contentLabel!.text = content
@@ -137,8 +138,9 @@ class YRJokeCell: UITableViewCell {
     
     class func cellHeightByData(data:NSDictionary)->CGFloat
     {
+        let width = UIScreen.mainScreen().bounds.size.width;
         let content = data.stringAttributeForKey("content")
-        let height = content.stringHeightWith(17,width:300)
+        let height = content.stringHeightWith(17,width:width-10*2)
         let imgSrc = data.stringAttributeForKey("image") as NSString
         if imgSrc.length == 0
         {

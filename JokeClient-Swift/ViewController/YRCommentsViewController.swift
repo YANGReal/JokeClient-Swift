@@ -41,7 +41,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
     
     func setupViews()
     {
-        let width = self.view.frame.size.width
+        let width = UIScreen.mainScreen().bounds.size.width
         let height = self.view.frame.size.height
         self.tableView = UITableView(frame:CGRectMake(0,0,width,height))
         self.tableView!.delegate = self;
@@ -83,7 +83,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
             }
             self.tableView!.reloadData()
             self.refreshView!.stopLoading()
-            self.page++
+            self.page += 1
             })
 
     }

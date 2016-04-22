@@ -72,12 +72,14 @@ class YRCommnentsCell: UITableViewCell {
             
         }
         let content = self.data.stringAttributeForKey("content")
-        let height = content.stringHeightWith(17,width:300)
+        let width = UIScreen.mainScreen().bounds.size.height
+        let height = content.stringHeightWith(17,width:width-10*2)
         self.contentLabel!.setHeight(height)
         self.contentLabel!.text = content
         self.dateLabel!.setY(self.contentLabel!.bottom())
         let floor = self.data.stringAttributeForKey("floor")
         self.floorLabel!.text = "\(floor)楼"
+//        self.contentLabel?.backgroundColor = UIColor.redColor();
     }
 
     
@@ -87,7 +89,8 @@ class YRCommnentsCell: UITableViewCell {
     class func cellHeightByData(data:NSDictionary)->CGFloat
     {
         let content = data.stringAttributeForKey("content")
-        let height = content.stringHeightWith(17,width:300)
+        let width = UIScreen.mainScreen().bounds.size.height
+        let height = content.stringHeightWith(17,width:width-10*2)
         return 53.0 + height + 24.0
     }
 
