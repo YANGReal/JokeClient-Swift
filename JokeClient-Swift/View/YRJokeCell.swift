@@ -54,7 +54,7 @@ class YRJokeCell: UITableViewCell {
             return;
         }
         
-        let user:AnyObject?  = self.data["user"]
+        let user  = self.data["user"]
         
         //if user as! NSObject != NSNull()
         if let userDictOp:NSDictionary = user as? NSDictionary
@@ -63,7 +63,7 @@ class YRJokeCell: UITableViewCell {
             let userDict = userDictOp
             self.nickLabel!.text = userDict["login"] as! String?
             
-            let icon : AnyObject! = userDict["icon"] //as NSString
+            let icon = userDict["icon"] //as NSString
             if icon as! NSObject != NSNull()
             {
                 let userIcon = icon as! String
@@ -112,7 +112,7 @@ class YRJokeCell: UITableViewCell {
             self.bottomView!.setY(self.pictureView!.bottom())
         }
         
-        let votes :AnyObject!  = self.data["votes"]
+        let votes = self.data["votes"]
         if votes as! NSObject == NSNull()
         {
             self.likeLabel!.text = "顶(0)"

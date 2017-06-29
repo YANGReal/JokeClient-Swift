@@ -16,7 +16,7 @@ extension UIImageView
     
         let url = URL(string: urlString)
         let cacheFilename = url!.lastPathComponent
-        let cachePath = FileUtility.cachePath(cacheFilename!)
+        let cachePath = FileUtility.cachePath(cacheFilename)
         let image : AnyObject = FileUtility.imageDataFromPath(cachePath)
       //  println(cachePath)
         if image as! NSObject != NSNull()
@@ -31,7 +31,7 @@ extension UIImageView
                 if (error != nil)
                 {
                     DispatchQueue.main.async(execute: {
-                            print(error)
+                            print(error!)
                             self.image = placeHolder
                         })
                 }

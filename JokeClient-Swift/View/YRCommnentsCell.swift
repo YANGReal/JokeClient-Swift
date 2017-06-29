@@ -38,14 +38,14 @@ class YRCommnentsCell: UITableViewCell {
     {
         super.layoutSubviews()
         // var uid = self.data["id"] as String
-        let user : AnyObject!  = self.data["user"]
+        let user = self.data["user"]
         
         if user as! NSObject != NSNull()
         {
             let userDict = user as! NSDictionary
             self.nickLabel!.text = userDict["login"] as! NSString as String
             
-            let icon : AnyObject! = userDict["icon"]
+            let icon = userDict["icon"]
             if icon as! NSObject != NSNull()
             {
                 let userIcon = icon as! String
@@ -60,7 +60,7 @@ class YRCommnentsCell: UITableViewCell {
             }
             
             let timeStamp = userDict.stringAttributeForKey("created_at")
-            let date = timeStamp.dateStringFromTimestamp(timeStamp)
+            let date = timeStamp.dateStringFromTimestamp(timeStamp as NSString)
             self.dateLabel!.text = date
             
         }

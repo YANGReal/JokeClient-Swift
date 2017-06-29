@@ -60,7 +60,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         let nib = UINib(nibName:"YRJokeCell", bundle: nil)
        
         self.tableView?.register(nib, forCellReuseIdentifier: identifier)
-        var arr =  (Bundle.main.loadNibNamed("YRRefreshView" ,owner: self, options: nil) as! Array<Any>)
+        var arr =  Bundle.main.loadNibNamed("YRRefreshView" ,owner: self, options: nil)!
         self.refreshView = arr[0] as? YRRefreshView
         self.refreshView!.delegate = self
 
@@ -83,7 +83,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
             
             let arr = data["items"] as! NSArray
             //println(data)
-            for data : AnyObject  in arr
+            for data in arr
             {
                self.dataArray.add(data)
             }

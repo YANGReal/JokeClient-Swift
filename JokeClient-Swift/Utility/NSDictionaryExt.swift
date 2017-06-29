@@ -15,7 +15,7 @@ extension NSDictionary {
     {
         //println(self[key])
         
-        let obj:AnyObject?  = self[key]
+        let obj = self[key] as AnyObject?
         //if obj as! NSObject == NSNull()
         if let _ = obj as? NSObject
         {
@@ -23,7 +23,7 @@ extension NSDictionary {
         } else {
             return ""
         }
-        if obj!.isKind(of: NSNumber)
+        if obj!.isKind(of: NSNumber.self)
         {
             let num = obj as! NSNumber
             return num.stringValue

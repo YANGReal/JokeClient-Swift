@@ -51,7 +51,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
         
         self.tableView?.register(nib, forCellReuseIdentifier: identifier)
         
-        var arr =  (Bundle.main.loadNibNamed("YRRefreshView" ,owner: self, options: nil) as! Array<Any>)
+        var arr =  Bundle.main.loadNibNamed("YRRefreshView" ,owner: self, options: nil)!
         self.refreshView = arr[0] as? YRRefreshView
         self.refreshView!.delegate = self
         
@@ -61,7 +61,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
     
     func loadData()
     {
-        let url = "http://m2.qiushibaike.com/article/\(self.jokeId)/comments?count=20&page=\(self.page)"
+        let url = "http://m2.qiushibaike.com/article/\(self.jokeId!)/comments?count=20&page=\(self.page)"
         self.refreshView!.startLoading()
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
             
@@ -77,7 +77,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
                 UIView.showAlertView("提示",message:"暂无新评论哦")
                 self.tableView!.tableFooterView = nil
             }
-            for data : AnyObject  in arr
+            for data in arr
             {
                 self.dataArray.add(data)
             }
