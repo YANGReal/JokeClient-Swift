@@ -19,27 +19,25 @@ class YRHttpRequest: NSObject {
         super.init();
     }
     
-    class func requestWithURL(urlString:String,completionHandler:(data:AnyObject)->Void)
+    class func requestWithURL(_ urlString:String,completionHandler:@escaping (_ data:AnyObject)->Void)
     {
-        let URL = NSURL(string: urlString);
-        let req = NSURLRequest(URL: URL!)
-        let queue = NSOperationQueue();
+        let URL = Foundation.URL(string: urlString);
+        let req = URLRequest(url: URL!)
+        let queue = OperationQueue();
         NSURLConnection.sendAsynchronousRequest(req, queue: queue, completionHandler: { response, data, error in
             if (error != nil)
             {
-                dispatch_async(dispatch_get_main_queue(),
-                {
+                DispatchQueue.main.async(execute: {
                     print(error)
-                    completionHandler(data:NSNull())
+                    completionHandler(NSNull())
                 })
             }
             else
             {
-                let jsonData = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
+                let jsonData = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSDictionary
 
-                dispatch_async(dispatch_get_main_queue(),
-                {
-                    completionHandler(data:jsonData)
+                DispatchQueue.main.async(execute: {
+                    completionHandler(jsonData)
                     
                 })
             }

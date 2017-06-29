@@ -32,14 +32,14 @@ class YRJokeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
        
-         self.selectionStyle = .None
+         self.selectionStyle = .none
         
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(YRJokeCell.imageViewTapped(_:)))
         self.pictureView!.addGestureRecognizer(tap)
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -69,7 +69,7 @@ class YRJokeCell: UITableViewCell {
                 let userIcon = icon as! String
                 if let idNumber = userDict["id"] as? NSNumber {
                     let userId = idNumber.stringValue as NSString
-                    let prefixUserId = userId.substringToIndex(userId.length - 4)
+                    let prefixUserId = userId.substring(to: userId.length - 4)
                     
                     let userImageURL = "http://pic.qiushibaike.com/system/avtnew/\(prefixUserId)/\(userId)/medium/\(userIcon)"
                     self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
@@ -88,7 +88,7 @@ class YRJokeCell: UITableViewCell {
           
         }
         let content = self.data.stringAttributeForKey("content")
-         let width = UIScreen.mainScreen().bounds.size.width;
+         let width = UIScreen.main.bounds.size.width;
         let height = content.stringHeightWith(17,width:width-10*2)
        
         self.contentLabel!.setHeight(height)
@@ -97,15 +97,15 @@ class YRJokeCell: UITableViewCell {
         let imgSrc = self.data.stringAttributeForKey("image") as NSString
         if imgSrc.length == 0
         {
-            self.pictureView!.hidden = true
+            self.pictureView!.isHidden = true
             self.bottomView!.setY(self.contentLabel!.bottom())
         }
         else
         {
             let imageId = self.data.stringAttributeForKey("id") as NSString
-            let prefiximageId = imageId.substringToIndex(imageId.length - 4)
+            let prefiximageId = imageId.substring(to: imageId.length - 4)
             let imagURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/small/\(imgSrc)"
-            self.pictureView!.hidden = false
+            self.pictureView!.isHidden = false
             self.pictureView!.setImage(imagURL,placeHolder: UIImage(named: "avatar.jpg"))
             self.largeImageURL = "http://pic.qiushibaike.com/system/pictures/\(prefiximageId)/\(imageId)/medium/\(imgSrc)"
             self.pictureView!.setY(self.contentLabel!.bottom()+5)
@@ -136,9 +136,9 @@ class YRJokeCell: UITableViewCell {
     }
     
     
-    class func cellHeightByData(data:NSDictionary)->CGFloat
+    class func cellHeightByData(_ data:NSDictionary)->CGFloat
     {
-        let width = UIScreen.mainScreen().bounds.size.width;
+        let width = UIScreen.main.bounds.size.width;
         let content = data.stringAttributeForKey("content")
         let height = content.stringHeightWith(17,width:width-10*2)
         let imgSrc = data.stringAttributeForKey("image") as NSString
@@ -149,9 +149,9 @@ class YRJokeCell: UITableViewCell {
         return 59.0 + height + 5.0 + 112.0 + 40.0
     }
     
-    func imageViewTapped(sender:UITapGestureRecognizer)
+    func imageViewTapped(_ sender:UITapGestureRecognizer)
     {
-        NSNotificationCenter.defaultCenter().postNotificationName("imageViewTapped", object:self.largeImageURL)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "imageViewTapped"), object:self.largeImageURL)
 
     }
     

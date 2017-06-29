@@ -10,9 +10,9 @@ import UIKit
 
 
 enum YRJokeTableViewControllerType : Int {
-    case HotJoke
-    case NewestJoke
-    case ImageTruth
+    case hotJoke
+    case newestJoke
+    case imageTruth
     
 }
 
@@ -21,7 +21,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
 {
     
     let identifier = "YRJokeCellIdentifier"
-    var jokeType:YRJokeTableViewControllerType = .HotJoke
+    var jokeType:YRJokeTableViewControllerType = .hotJoke
     var tableView:UITableView?
     var dataArray = NSMutableArray()
     var page :Int = 1
@@ -35,32 +35,32 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         loadData()
     }
     
-    override func viewWillDisappear(animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
-          NSNotificationCenter.defaultCenter().removeObserver(self, name: "imageViewTapped", object:nil)
+          NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "imageViewTapped"), object:nil)
         
     }
-     override func viewWillAppear(animated: Bool)
+     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YRJokeTableViewController.imageViewTapped(_:)), name: "imageViewTapped", object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(YRJokeTableViewController.imageViewTapped(_:)), name: NSNotification.Name(rawValue: "imageViewTapped"), object: nil)
     }
     
     
     
     func setupViews()
     {
-        let width = UIScreen.mainScreen().bounds.size.width
+        let width = UIScreen.main.bounds.size.width
         let height = self.view.frame.size.height
-        self.tableView = UITableView(frame:CGRectMake(0,64,width,height-49-64))
+        self.tableView = UITableView(frame:CGRect(x: 0,y: 64,width: width,height: height-49-64))
         self.tableView?.delegate = self;
         self.tableView?.dataSource = self;
-        self.tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView?.separatorStyle = UITableViewCellSeparatorStyle.none
         let nib = UINib(nibName:"YRJokeCell", bundle: nil)
        
-        self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
-        var arr =  NSBundle.mainBundle().loadNibNamed("YRRefreshView" ,owner: self, options: nil) as Array
+        self.tableView?.register(nib, forCellReuseIdentifier: identifier)
+        var arr =  (Bundle.main.loadNibNamed("YRRefreshView" ,owner: self, options: nil) as! Array<Any>)
         self.refreshView = arr[0] as? YRRefreshView
         self.refreshView!.delegate = self
 
@@ -85,7 +85,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
             //println(data)
             for data : AnyObject  in arr
             {
-               self.dataArray.addObject(data)
+               self.dataArray.add(data)
             }
             self.tableView!.reloadData()
             self.refreshView!.stopLoading()
@@ -96,11 +96,11 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     
     func urlString()->String
     {
-        if jokeType == .HotJoke //最热糗事
+        if jokeType == .hotJoke //最热糗事
         {
             return "http://m2.qiushibaike.com/article/list/suggest?count=20&page=\(page)"
         }
-        else if jokeType == .NewestJoke //最新糗事
+        else if jokeType == .newestJoke //最新糗事
         {
            return "http://m2.qiushibaike.com/article/list/latest?count=20&page=\(page)"
         }
@@ -115,34 +115,34 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         // Dispose of any resources that can be recreated.
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return  self.dataArray.count;
     }
 
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? YRJokeCell
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
         cell!.data = data
         return cell!;
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
         return  YRJokeCell.cellHeightByData(data)
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
@@ -151,12 +151,12 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
         self.navigationController!.pushViewController(commentsVC, animated: true)
     }
     
-     func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
+     func refreshView(_ refreshView:YRRefreshView,didClickButton btn:UIButton)
      {
         loadData()
      }
     
-    func imageViewTapped(noti:NSNotification)
+    func imageViewTapped(_ noti:Notification)
     {
         
         let imageURL = noti.object as! String

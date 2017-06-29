@@ -11,32 +11,32 @@ import UIKit
 class FileUtility: NSObject {
    
     
-    class func cachePath(fileName:String)->String
+    class func cachePath(_ fileName:String)->String
     {
-        var arr =  NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
+        var arr =  NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
         let path = arr[0] 
         return "\(path)/\(fileName)"
     }
     
     
-    class func imageCacheToPath(path:String,image:NSData)->Bool
+    class func imageCacheToPath(_ path:String,image:Data)->Bool
     {
-       return image.writeToFile(path, atomically: true)
+       return ((try? image.write(to: URL(fileURLWithPath: path), options: [.atomic])) != nil)
     }
     
-    class func imageDataFromPath(path:String)->AnyObject
+    class func imageDataFromPath(_ path:String)->AnyObject
     {
-        let exist = NSFileManager.defaultManager().fileExistsAtPath(path)
+        let exist = FileManager.default.fileExists(atPath: path)
         if exist
         {
 
-            _ = NSData(contentsOfFile: path);
+            _ = try? Data(contentsOf: URL(fileURLWithPath: path));
             //var img:UIImage? = UIImage(data:data!)
             //return img ?? NSNull()
             let img = UIImage(contentsOfFile: path)
             
-            let url:NSURL? = NSURL.fileURLWithPath(path)
-            let dd = NSFileManager.defaultManager().contentsAtPath(url!.path!)
+            let url:URL? = URL(fileURLWithPath: path)
+            let dd = FileManager.default.contents(atPath: url!.path)
             _ = UIImage(data:dd!)
             
             if img != nil

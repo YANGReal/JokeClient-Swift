@@ -11,7 +11,7 @@ import Foundation
 extension NSDictionary {
    
     
-    func stringAttributeForKey(key:String)->String
+    func stringAttributeForKey(_ key:String)->String
     {
         //println(self[key])
         
@@ -23,7 +23,7 @@ extension NSDictionary {
         } else {
             return ""
         }
-        if obj!.isKindOfClass(NSNumber)
+        if obj!.isKind(of: NSNumber)
         {
             let num = obj as! NSNumber
             return num.stringValue

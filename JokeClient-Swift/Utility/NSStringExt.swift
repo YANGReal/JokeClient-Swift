@@ -11,28 +11,28 @@ import Foundation
 extension String {
    
 
-    func stringHeightWith(fontSize:CGFloat,width:CGFloat)->CGFloat
+    func stringHeightWith(_ fontSize:CGFloat,width:CGFloat)->CGFloat
 
     {
-        let font = UIFont.systemFontOfSize(fontSize)
-        let size = CGSizeMake(width,CGFloat.max)
+        let font = UIFont.systemFont(ofSize: fontSize)
+        let size = CGSize(width: width,height: CGFloat.greatestFiniteMagnitude)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = .ByWordWrapping;
+        paragraphStyle.lineBreakMode = .byWordWrapping;
         let  attributes = [NSFontAttributeName:font,
             NSParagraphStyleAttributeName:paragraphStyle.copy()]
         
         let text = self as NSString
-        let rect = text.boundingRectWithSize(size, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
+        let rect = text.boundingRect(with: size, options:.usesLineFragmentOrigin, attributes: attributes, context:nil)
         return rect.size.height
     }
     
-    func dateStringFromTimestamp(timeStamp:NSString)->String
+    func dateStringFromTimestamp(_ timeStamp:NSString)->String
     {
         let ts = timeStamp.doubleValue
-        let  formatter = NSDateFormatter ()
+        let  formatter = DateFormatter ()
         formatter.dateFormat = "yyyy年MM月dd日 HH:MM:ss"
-        let date = NSDate(timeIntervalSince1970 : ts)
-         return  formatter.stringFromDate(date)
+        let date = Date(timeIntervalSince1970 : ts)
+         return  formatter.string(from: date)
         
     }
     
