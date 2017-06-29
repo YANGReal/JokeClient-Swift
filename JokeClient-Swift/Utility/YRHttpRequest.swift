@@ -28,7 +28,7 @@ class YRHttpRequest: NSObject {
             if (error != nil)
             {
                 DispatchQueue.main.async(execute: {
-                    print(error)
+                    print(error!)
                     completionHandler(NSNull())
                 })
             }
