@@ -112,27 +112,22 @@ class YRJokeCell: UITableViewCell {
             self.bottomView!.setY(self.pictureView!.bottom())
         }
         
-        let votes = self.data["votes"]
-        if votes as! NSObject == NSNull()
+        if let votesDict = self.data["votes"] as? NSDictionary
         {
-            self.likeLabel!.text = "顶(0)"
-            self.dislikeLabel!.text = "踩(0)"
-           // self.likeLabel!.text = "评论(0)"
+            let like  = votesDict.stringAttributeForKey("up")
+            let disLike  = votesDict.stringAttributeForKey("down")
+            self.likeLabel!.text = "顶(\(like))"
+            self.dislikeLabel!.text = "踩(\(disLike))"
         }
         else
         {
-            let votesDict = votes as! NSDictionary
-            let like  = votesDict.stringAttributeForKey("up") as String
-            let disLike  = votesDict.stringAttributeForKey("down") as String
-            self.likeLabel!.text = "顶(\(like))"
-            self.dislikeLabel!.text = "踩(\(disLike))"
+            self.likeLabel!.text = "顶(0)"
+            self.dislikeLabel!.text = "踩(0)"
+            // self.likeLabel!.text = "评论(0)"
         }//comments_count
-        let commentCount = self.data.stringAttributeForKey("comments_count") as String
+        let commentCount = self.data.stringAttributeForKey("comments_count")
         self.commentLabel!.text = "评论(\(commentCount))"
-        
-        
-        
-        
+
     }
     
     
@@ -141,8 +136,8 @@ class YRJokeCell: UITableViewCell {
         let width = UIScreen.main.bounds.size.width;
         let content = data.stringAttributeForKey("content")
         let height = content.stringHeightWith(17,width:width-10*2)
-        let imgSrc = data.stringAttributeForKey("image") as NSString
-        if imgSrc.length == 0
+        let imgSrc = data.stringAttributeForKey("image")
+        if imgSrc.isEmpty
         {
             return 59.0 + height + 40.0
         }
