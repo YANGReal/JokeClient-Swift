@@ -24,6 +24,7 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     var jokeType:YRJokeTableViewControllerType = .hotJoke
     var tableView:UITableView?
     var dataArray = NSMutableArray()
+    var cellHeight = NSMutableArray()
     var page :Int = 1
     var refreshView:YRRefreshView?
     
@@ -85,8 +86,10 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
             //println(data)
             for data in arr
             {
+               self.cellHeight.add(YRJokeCell.cellHeightByData(data as! NSDictionary))
                self.dataArray.add(data)
             }
+            
             self.tableView!.reloadData()
             self.refreshView!.stopLoading()
             self.page += 1;
@@ -129,19 +132,19 @@ class  YRJokeTableViewController:UIViewController,YRRefreshViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? YRJokeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! YRJokeCell
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
-        cell!.data = data
-        return cell!;
+        cell.data = data
+        return cell;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         let index = indexPath.row
-        let data = self.dataArray[index] as! NSDictionary
-        return  YRJokeCell.cellHeightByData(data)
+        return self.cellHeight[index] as! CGFloat
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let index = indexPath.row
