@@ -20,7 +20,7 @@ class YRMainViewController: UITabBarController {
     let itemArray = ["最新","热门","真相","关于"]
     
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
         self.title = "最新"
@@ -40,14 +40,14 @@ class YRMainViewController: UITabBarController {
     func setupViews()
     {
         self.automaticallyAdjustsScrollViewInsets = false
-        self.view.backgroundColor = UIColor.whiteColor()
-        self.tabBar.hidden = true
-        let width = UIScreen.mainScreen().bounds.size.width;
+        self.view.backgroundColor = UIColor.white
+        self.tabBar.isHidden = true
+        let width = UIScreen.main.bounds.size.width;
         let height = self.view.frame.size.height
-        self.myTabbar = UIView(frame: CGRectMake(0,height-49,width,49))
+        self.myTabbar = UIView(frame: CGRect(x: 0,y: height-49,width: width,height: 49))
         self.myTabbar!.backgroundColor = tabBarBGColor
-        self.slider = UIView(frame:CGRectMake(0,0,80,49))
-        self.slider!.backgroundColor = UIColor.whiteColor()//btnBGColor
+        self.slider = UIView(frame:CGRect(x: 0,y: 0,width: 80,height: 49))
+        self.slider!.backgroundColor = UIColor.white//btnBGColor
         self.myTabbar!.addSubview(self.slider!)
         
         self.view.addSubview(self.myTabbar!)
@@ -58,20 +58,20 @@ class YRMainViewController: UITabBarController {
         {
             
             let btnWidth = (CGFloat)(width/4)
-            let button  = UIButton(type: UIButtonType.Custom)
+            let button  = UIButton(type: UIButtonType.custom)
             let x = (btnWidth*(CGFloat)(index));
-            button.frame = CGRectMake(x, 0,btnWidth,49)
+            button.frame = CGRect(x: x, y: 0,width: btnWidth,height: 49)
             button.tag = index+100
             let title = self.itemArray[index]
-            button.setTitle(title, forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-            button.setTitleColor(tabBarBGColor, forState: UIControlState.Selected)
+            button.setTitle(title, for: UIControlState())
+            button.setTitleColor(UIColor.white, for: UIControlState())
+            button.setTitleColor(tabBarBGColor, for: UIControlState.selected)
             
-            button.addTarget(self, action: #selector(YRMainViewController.tabBarButtonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(YRMainViewController.tabBarButtonClicked(_:)), for: UIControlEvents.touchUpInside)
             self.myTabbar?.addSubview(button)
             if index == 0
             {
-                button.selected = true
+                button.isSelected = true
             }
         }
     }
@@ -79,17 +79,17 @@ class YRMainViewController: UITabBarController {
     func initViewControllers()
     {
         let vc1 = YRJokeTableViewController()
-        vc1.jokeType = .NewestJoke
+        vc1.jokeType = .newestJoke
         let vc2 = YRJokeTableViewController()
-        vc2.jokeType = .HotJoke
+        vc2.jokeType = .hotJoke
         let vc3 = YRJokeTableViewController()
-        vc3.jokeType = .ImageTruth
+        vc3.jokeType = .imageTruth
         let vc4 = YRAboutViewController(nibName: "YRAboutViewController", bundle: nil)
         self.viewControllers = [vc1,vc2,vc3,vc4]
     }
     
     
-    func tabBarButtonClicked(sender:UIButton)
+    func tabBarButtonClicked(_ sender:UIButton)
     {
         let index = sender.tag
         
@@ -98,19 +98,19 @@ class YRMainViewController: UITabBarController {
             let button = self.view.viewWithTag(i+100) as! UIButton
             if button.tag == index
             {
-                button.selected = true
+                button.isSelected = true
             }
             else
             {
-                button.selected = false
+                button.isSelected = false
             }
         }
-        let width = UIScreen.mainScreen().bounds.size.width;
+        let width = UIScreen.main.bounds.size.width;
         let btnWidth = (CGFloat)(width/4)
-        UIView.animateWithDuration( 0.3,
+        UIView.animate( withDuration: 0.3,
             animations:{
            
-            self.slider!.frame = CGRectMake(CGFloat(index-100)*btnWidth,0,btnWidth,49)
+            self.slider!.frame = CGRect(x: CGFloat(index-100)*btnWidth,y: 0,width: btnWidth,height: 49)
             
         })
         self.title = itemArray[index-100] as String

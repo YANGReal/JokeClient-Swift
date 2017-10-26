@@ -28,7 +28,7 @@ class YRCommnentsCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -38,19 +38,19 @@ class YRCommnentsCell: UITableViewCell {
     {
         super.layoutSubviews()
         // var uid = self.data["id"] as String
-        let user : AnyObject!  = self.data["user"]
+        let user = self.data["user"]
         
         if user as! NSObject != NSNull()
         {
             let userDict = user as! NSDictionary
             self.nickLabel!.text = userDict["login"] as! NSString as String
             
-            let icon : AnyObject! = userDict["icon"]
+            let icon = userDict["icon"]
             if icon as! NSObject != NSNull()
             {
                 let userIcon = icon as! String
                 let userId =  userDict.stringAttributeForKey("id") as NSString;
-                let prefixUserId = userId.substringToIndex(3)
+                let prefixUserId = userId.substring(to: 3)
                 let userImageURL = "http://pic.moumentei.com/system/avtnew/\(prefixUserId)/\(userId)/thumb/\(userIcon)"
                 self.avatarView!.setImage(userImageURL,placeHolder: UIImage(named: "avatar.jpg"))
             }
@@ -60,7 +60,7 @@ class YRCommnentsCell: UITableViewCell {
             }
             
             let timeStamp = userDict.stringAttributeForKey("created_at")
-            let date = timeStamp.dateStringFromTimestamp(timeStamp)
+            let date = timeStamp.dateStringFromTimestamp(timeStamp as NSString)
             self.dateLabel!.text = date
             
         }
@@ -72,7 +72,7 @@ class YRCommnentsCell: UITableViewCell {
             
         }
         let content = self.data.stringAttributeForKey("content")
-        let width = UIScreen.mainScreen().bounds.size.height
+        let width = UIScreen.main.bounds.size.height
         let height = content.stringHeightWith(17,width:width-10*2)
         self.contentLabel!.setHeight(height)
         self.contentLabel!.text = content
@@ -86,10 +86,10 @@ class YRCommnentsCell: UITableViewCell {
     
     
     
-    class func cellHeightByData(data:NSDictionary)->CGFloat
+    class func cellHeightByData(_ data:NSDictionary)->CGFloat
     {
         let content = data.stringAttributeForKey("content")
-        let width = UIScreen.mainScreen().bounds.size.height
+        let width = UIScreen.main.bounds.size.height
         let height = content.stringHeightWith(17,width:width-10*2)
         return 53.0 + height + 24.0
     }

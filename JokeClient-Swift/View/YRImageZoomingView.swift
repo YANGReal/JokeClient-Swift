@@ -22,11 +22,11 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         
         
         self.imageView = UIImageView(frame:self.bounds)
-        self.imageView!.contentMode = .ScaleAspectFit
+        self.imageView!.contentMode = .scaleAspectFit
         self.addSubview(self.imageView!)
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.minimumZoomScale = 1;
         self.maximumZoomScale = 3;
      
@@ -42,7 +42,7 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func doubleTapped(sender:UITapGestureRecognizer)
+    func doubleTapped(_ sender:UITapGestureRecognizer)
     {
         if self.zoomScale > 1.0
         {
@@ -50,14 +50,14 @@ class YRImageZoomingView: UIScrollView,UIScrollViewDelegate {
         }
         else
         {
-            let point = sender.locationInView(self);
-            self.zoomToRect(CGRectMake(point.x-50, point.y-50, 100, 100), animated:true)
+            let point = sender.location(in: self);
+            self.zoom(to: CGRect(x: point.x-50, y: point.y-50, width: 100, height: 100), animated:true)
         }
 
     }
     
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView)->UIView?
+    func viewForZooming(in scrollView: UIScrollView)->UIView?
     {
         return self.imageView
     }

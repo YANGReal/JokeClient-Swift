@@ -11,28 +11,22 @@ import Foundation
 extension NSDictionary {
    
     
-    func stringAttributeForKey(key:String)->String
+    func stringAttributeForKey(_ key:String)->String
     {
-        //println(self[key])
-        
-        let obj:AnyObject?  = self[key]
-        //if obj as! NSObject == NSNull()
-        if let _ = obj as? NSObject
-        {
-            //return ""
-        } else {
+        guard let obj = self[key] else {
             return ""
         }
-        if obj!.isKindOfClass(NSNumber)
+        if let str = obj as? String
         {
-            let num = obj as! NSNumber
+            return str
+        }
+        else if let num = obj as? NSNumber
+        {
             return num.stringValue
         }
-        if let _ = obj as? String
+        else
         {
-            return obj as! String
+            return ""
         }
-        return ""
     }
-    
 }

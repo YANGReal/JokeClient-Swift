@@ -11,7 +11,7 @@ import UIKit
 class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource ,YRRefreshViewDelegate {
 
     let identifier = "cell"
-    var jokeType:YRJokeTableViewControllerType = .HotJoke
+    var jokeType:YRJokeTableViewControllerType = .hotJoke
     var tableView:UITableView?
     var dataArray = NSMutableArray()
     var page :Int = 1
@@ -20,7 +20,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
 
     
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
         self.title = "评论"
@@ -41,17 +41,17 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
     
     func setupViews()
     {
-        let width = UIScreen.mainScreen().bounds.size.width
+        let width = UIScreen.main.bounds.size.width
         let height = self.view.frame.size.height
-        self.tableView = UITableView(frame:CGRectMake(0,0,width,height))
+        self.tableView = UITableView(frame:CGRect(x: 0,y: 0,width: width,height: height))
         self.tableView!.delegate = self;
         self.tableView!.dataSource = self;
-        self.tableView!.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView!.separatorStyle = UITableViewCellSeparatorStyle.none
         let nib = UINib(nibName:"YRCommnentsCell", bundle: nil)
         
-        self.tableView?.registerNib(nib, forCellReuseIdentifier: identifier)
+        self.tableView?.register(nib, forCellReuseIdentifier: identifier)
         
-        var arr =  NSBundle.mainBundle().loadNibNamed("YRRefreshView" ,owner: self, options: nil) as Array
+        var arr =  Bundle.main.loadNibNamed("YRRefreshView" ,owner: self, options: nil)!
         self.refreshView = arr[0] as? YRRefreshView
         self.refreshView!.delegate = self
         
@@ -61,7 +61,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
     
     func loadData()
     {
-        let url = "http://m2.qiushibaike.com/article/\(self.jokeId)/comments?count=20&page=\(self.page)"
+        let url = "http://m2.qiushibaike.com/article/\(self.jokeId!)/comments?count=20&page=\(self.page)"
         self.refreshView!.startLoading()
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
             
@@ -77,9 +77,9 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
                 UIView.showAlertView("提示",message:"暂无新评论哦")
                 self.tableView!.tableFooterView = nil
             }
-            for data : AnyObject  in arr
+            for data in arr
             {
-                self.dataArray.addObject(data)
+                self.dataArray.add(data)
             }
             self.tableView!.reloadData()
             self.refreshView!.stopLoading()
@@ -89,28 +89,28 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.dataArray.count;
     }
     
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRCommnentsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? YRCommnentsCell
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
         cell!.data  = data
         return cell!
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         let index = indexPath.row
         let data = self.dataArray[index] as! NSDictionary
@@ -123,7 +123,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
 //        println(data)
 //    }
     
-    func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
+    func refreshView(_ refreshView:YRRefreshView,didClickButton btn:UIButton)
     {
         //refreshView.startLoading()
         loadData()

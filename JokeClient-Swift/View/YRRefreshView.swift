@@ -14,7 +14,7 @@ protocol YRRefreshViewDelegate
 {
     // @optional func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     
-   func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
+   func refreshView(_ refreshView:YRRefreshView,didClickButton btn:UIButton)
 }
 
 
@@ -22,7 +22,7 @@ class YRRefreshView: UIView {
 
     @IBOutlet var button:UIButton!
     @IBOutlet var indicator: UIActivityIndicatorView!
-    @IBAction func buttonClicked(sender:UIButton)
+    @IBAction func buttonClicked(_ sender:UIButton)
     {
         self.delegate.refreshView(self,didClickButton:sender)
     }
@@ -35,21 +35,21 @@ class YRRefreshView: UIView {
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        self.indicator!.hidden = true
+        self.indicator!.isHidden = true
         
     }
     
     func startLoading()
     {
-        self.button!.setTitle("", forState: .Normal)
-        self.indicator!.hidden = false
+        self.button!.setTitle("", for: UIControlState())
+        self.indicator!.isHidden = false
         self.indicator!.startAnimating()
     }
     
     func stopLoading()
     {
-        self.button!.setTitle("点击加载更多", forState: .Normal)
-        self.indicator!.hidden = true
+        self.button!.setTitle("点击加载更多", for: UIControlState())
+        self.indicator!.isHidden = true
         self.indicator!.stopAnimating()
     }
     

@@ -35,54 +35,54 @@ extension UIView  {
         return self.frame.size.height
     }
     
-    func setX(x: CGFloat)
+    func setX(_ x: CGFloat)
     {
         var rect:CGRect = self.frame
         rect.origin.x = x
         self.frame = rect
     }
     
-    func setRight(right: CGFloat)
+    func setRight(_ right: CGFloat)
     {
         var rect:CGRect = self.frame
         rect.origin.x = right - rect.size.width
         self.frame = rect
     }
     
-    func setY(y: CGFloat)
+    func setY(_ y: CGFloat)
     {
         var rect:CGRect = self.frame
         rect.origin.y = y
         self.frame = rect
     }
     
-    func setBottom(bottom: CGFloat)
+    func setBottom(_ bottom: CGFloat)
     {
         var rect:CGRect = self.frame
         rect.origin.y = bottom - rect.size.height
         self.frame = rect
     }
     
-    func setWidth(width: CGFloat)
+    func setWidth(_ width: CGFloat)
     {
         var rect:CGRect = self.frame
         rect.size.width = width
         self.frame = rect
     }
     
-    func setHeight(height: CGFloat)
+    func setHeight(_ height: CGFloat)
     {
         var rect:CGRect = self.frame
         rect.size.height = height
         self.frame = rect
     }
     
-    class func showAlertView(title:String,message:String)
+    class func showAlertView(_ title:String,message:String)
     {
         let alert = UIAlertView()
         alert.title = title
         alert.message = message
-        alert.addButtonWithTitle("好")
+        alert.addButton(withTitle: "好")
         alert.show()
 
     }
